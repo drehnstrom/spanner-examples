@@ -1,0 +1,16 @@
+CREATE TABLE Owners (
+     OwnerID STRING(MAX) NOT NULL, 
+     OwnerName STRING(MAX) NOT NULL
+) PRIMARY KEY (OwnerID);
+
+CREATE TABLE Pets (
+     PetID STRING(MAX) NOT NULL, 
+     OwnerID STRING(MAX) NOT NULL, 
+     PetType STRING(MAX) NOT NULL,
+     PetName STRING(MAX) NOT NULL,
+     Breed STRING(MAX) NOT NULL,
+) PRIMARY KEY (PetID);
+
+CREATE INDEX PetsByOwnerID ON Pets(OwnerID);
+CREATE INDEX PetsByType ON Pets(PetType);
+CREATE INDEX OwnersByName ON Owners(OwnerName);

@@ -1,0 +1,1 @@
+gcloud spanner databases execute-sql pets-db --instance=test-spanner-instance --sql='SELECT OwnerName, PetName, PetType, Breed FROM Owners join Pets on Owners.OwnerID = Pets.OwnerID' 
