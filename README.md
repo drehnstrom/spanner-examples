@@ -37,14 +37,6 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * Processiing Units
         * Capacity Guidance
         * Cost
-        * __Lab: Creating Spanner Instances (Console)__
-        * Automating Spanner Instances
-        * Google Cloud SDK
-        * gcloud CLI
-        * Code Example: CLI
-        * Terraform
-        * Code Example: Terraform
-        * __Lab: Creating Spanner Instances (CLI and Terraform)__
     * Creating Databases
         * Creating a Database
         * Choosing a Dialect
@@ -59,6 +51,12 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * SELECT
         * DELETE
         * __Lab: Creating Spanner Databases (Console)__
+    * Automating Spanner Instances
+        * Google Cloud SDK
+        * gcloud CLI
+        * Code Example: CLI
+        * Terraform
+        * Code Example: Terraform
         * CLI
         * Terraform
         * __Lab: Creating Spanner Databases (CLI and Terraform)__
@@ -154,8 +152,6 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
 
 
 ## Hands-On Labs
-* __Lab: Creating Spanner Instances (Console)__
-* __Lab: Creating Spanner Instances (CLI and Terraform)__
 * __Lab: Creating Spanner Databases (Console)__
 * __Lab: Creating Spanner Databases (CLI and Terraform)__
 * __Lab: Choosing Primary Keys__
