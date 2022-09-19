@@ -1,10 +1,10 @@
 # Spanner Course Outline
 
 ## Who Should Attend
-Database administrators, programmers, and cloud architects and engineers who want to learn how to create and operate SPanner databases and migrate existing databases into Spanner. 
+Database administrators, programmers, and cloud architects and engineers who want to learn how to create and operate Spanner databases and migrate existing databases into Spanner. 
 
 ## Prerequisites
-This course is not an introduction to Google Cloud. Some prior Google Cloud experience is assumed. Experience with relational databases and the SQL language are also assumed. 
+This course is not an introduction to Google Cloud. Some prior Google Cloud experience is assumed. Experience with relational databases and the SQL language is also assumed. 
 
 ## Modules
 1. The Need for Spanner
@@ -73,7 +73,7 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * Using Timestamps in Primary Keys
         * Using Sequences in Primary Keys
         * Code Example: Using UUIDs
-        * Code Example: Bit Reversing
+        * Code Example: Bit Reversing Counters
         * __Lab: Choosing Primary Keys__
     * Defining Database Schemas
         * Indexes
