@@ -1,4 +1,5 @@
 # Spanner Course Outline
+2-Days
 
 ## Who Should Attend
 Database administrators, programmers, and cloud architects and engineers who want to learn how to create and operate Spanner databases and migrate existing databases into Spanner. 
