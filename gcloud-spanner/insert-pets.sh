@@ -5,7 +5,7 @@ echo $owner_uuid
 echo $pet_uuid
 
 
- gcloud spanner rows insert --table=Owners --database=pets-db --instance=test-spanner-instance --data=OwnerID=$owner_uuid,OwnerName=Doug
+gcloud spanner rows insert --table=Owners --database=pets-db --instance=test-spanner-instance --data=OwnerID=$owner_uuid,OwnerName=Doug
 
 gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spanner-instance --data=PetID=$pet_uuid,OwnerID=$owner_uuid,PetName='Noir',PetType='Dog',Breed='Schnoodle'
 
