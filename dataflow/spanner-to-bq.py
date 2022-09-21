@@ -21,16 +21,16 @@ def main(argv=None, save_main_session=True):
     """Main entry point."""
     projectid = os.environ.get('GOOGLE_CLOUD_PROJECT')
     parser = argparse.ArgumentParser()
-#   parser.add_argument(
-#       '--input',
-#       dest='input',
-#       default=f'gs://{projectid}/regions.csv',
-#       help='Input file to process.')
-#   parser.add_argument(
-#       '--output',
-#       dest='output',
-#       default = f'gs://{projectid}/regions_output',      
-#       help='Output file to write results to.')
+    parser.add_argument(
+        '--instance',
+        dest='instance',
+        default='test-spanner-instance',
+        help='Spanner instance ID.')
+    parser.add_argument(
+        '--database',
+        dest='database',
+        default = 'pets-db',      
+        help='Spanner database.')
     known_args, pipeline_args = parser.parse_known_args(argv)
 
     pipeline_options = PipelineOptions(pipeline_args)
@@ -39,8 +39,8 @@ def main(argv=None, save_main_session=True):
     with beam.Pipeline(options=pipeline_options) as p:
         owner_pets = p | ReadFromSpanner(
                             project_id=projectid,
-                            instance_id='test-spanner-instance',
-                            database_id='pets-db',
+                            instance_id=known_args.instance,
+                            database_id=known_args.database,
                             row_type=PetRow,
                             sql = "SELECT OwnerID, PetName, PetType, Breed FROM Pets"
                             ).with_output_types(PetRow)
