@@ -24,3 +24,4 @@ CREATE TABLE Pets2 (
 CREATE INDEX PetsByOwnerID ON Pets(OwnerID);
 CREATE INDEX PetsByType ON Pets(PetType);
 CREATE INDEX OwnersByName ON Owners(OwnerName);
+CREATE INDEX Pets2ByOwnerID ON Pets2(OwnerID);
