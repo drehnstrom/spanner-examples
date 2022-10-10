@@ -161,8 +161,8 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
 * __Lab: Creating Spanner Databases (CLI and Terraform)__
 * __Lab: Choosing Primary Keys__
 * __Lab: Managing Relationships with Foreign Keys and Interleaved Tables__
+* * __Lab: Programming Spanner Applications with Python__
 * __Lab: Running Queries and Transactions__
-* __Lab: Programming Spanner Applications with Python__
 * __Lab: Deploying Spanner Applications with Cloud Functions and Cloud Run__
 * __Lab: Migrating Data to and from Spanner with Dataflow__
 * __Lab: Administering Spanner Databases__
