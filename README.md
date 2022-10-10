@@ -87,20 +87,7 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * Interleaved Tables
         * __Lab: Managing Relationships with Foreign Keys and Interleaved Tables__
 
-1. Queries and Transactions
-    * Running Queries
-        * Strong Reads
-        * Stale Reads
-        * Using Indexes
-    * Running Transactions
-        * Transaction Types
-        * External Consistency
-        * Read-Write Transactions
-        * Partitioned DML
-        * Read-Only Trasactions
-        * __Lab: Running Queries and  Transactions__
-
-1. Programming Spanner Applications
+1. Programming Spanner Applications, Queries, and Transactions
     * Authentication and Authorization
         * IAM
         * Spanner Roles
@@ -115,6 +102,19 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * CRUD
         * Running Queries
         * __Lab: Programming Spanner Applications with Python__
+    * Running Queries
+        * Strong Reads
+        * Stale Reads
+        * Using Indexes
+    * Running Transactions
+        * Transaction Types
+        * External Consistency
+        * Read-Write Transactions
+        * Partitioned DML
+        * Read-Only Trasactions
+        * __Lab: Running Queries and  Transactions__
+
+1. Deploying Spanner Applications
     * Using Spanner from Applications
         * JDBC Driver
         * PostgreSQL Interface
