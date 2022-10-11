@@ -6,17 +6,17 @@ import uuid
 import os
  
 # Get the Instance ID and database ID from environment variables
-# Use defaults if they don't exist. 
+# Use the emulator if the env variables are not set.
+# Requires the start-spanner-emulator.sh script be run. 
 if "INSTANCE_ID" in os.environ:
     instance_id = os.environ["INSTANCE_ID"]
 else:
-    instance_id = 'spannerdbsrv'
+    instance_id = 'emulator-instance'
 
 if "DATABASE_ID" in os.environ:
     database_id = os.environ["DATABASE_ID"]
 else:
     database_id = 'pets-db'
-
 
 client = spanner.Client()
 instance = client.instance(instance_id)
@@ -66,7 +66,6 @@ class PetsList(Resource):
         # Need a UUID for the new pet
         pet_id = str(uuid.uuid4())
         
-
         def insert_owner_pet(transaction, data, owner_exists):
             try:
                 row_ct = 0
@@ -110,7 +109,6 @@ class PetsList(Resource):
 
         return "{} record(s) inserted.".format(row_ct), 201
 
-
     def delete(self):
 
         # This delete all the Owners and Pets
@@ -125,8 +123,6 @@ class PetsList(Resource):
         row_ct = database.run_in_transaction(delete_owners)
         return "{} record(s) deleted.".format(row_ct), 201
         
-
-
 class Pet(Resource):
     def get(self, pet_id):
 
@@ -160,7 +156,6 @@ class Pet(Resource):
                 return "Not found", 404
 
 
-
     def patch(self, pet_id):
         # This woud be for an Update
         return "Not Implemented", 500
@@ -173,16 +168,13 @@ class Pet(Resource):
 api.add_resource(PetsList, '/pets')
 api.add_resource(Pet, '/pets/<pet_id>')
 
-
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({'error': 'Not found'}), 404
 
-
 @app.errorhandler(500)
 def server_error(e):
     return 'An internal error occurred.', 500
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
