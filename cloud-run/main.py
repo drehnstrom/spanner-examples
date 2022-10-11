@@ -7,15 +7,16 @@ import os
  
 # Get the Instance ID and database ID from environment variables
 # Use defaults if they don't exist. 
-if "instance_id" in os.environ:
-    instance_id = os.environ["instance_id"]
+if "INSTANCE_ID" in os.environ:
+    instance_id = os.environ["INSTANCE_ID"]
 else:
     instance_id = 'spannerdbsrv'
 
-if "database_id" in os.environ:
-    database_id = os.environ["database_id"]
+if "DATABASE_ID" in os.environ:
+    database_id = os.environ["DATABASE_ID"]
 else:
     database_id = 'pets-db'
+
 
 client = spanner.Client()
 instance = client.instance(instance_id)
