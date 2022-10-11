@@ -1,0 +1,1 @@
+gcloud functions deploy spanner_get_pets --runtime python310 --trigger-http --set-env-vars INSTANCE_ID=spannerdbsrv,DATABASE_ID=pets-db
