@@ -39,7 +39,6 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * Processiing Units
         * Capacity Guidance
         * Cost
-        * __Lab: Creating Spanner Instances (Console)__
     * Automating Instance Creation
         * Automating Spanner Instances
         * Google Cloud SDK
@@ -47,7 +46,6 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * Code Example: CLI
         * Terraform
         * Code Example: Terraform
-        * __Lab: Creating Spanner Instances (CLI and Terraform)__
     * Creating Databases
         * Creating a Database
         * Choosing a Dialect
@@ -61,10 +59,10 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
         * UPDATE
         * SELECT
         * DELETE
-        * __Lab: Creating Spanner Databases (Console)__
         * CLI
         * Terraform
-        * __Lab: Creating Spanner Databases (CLI and Terraform)__
+        * __Lab: Creating Spanner Instances and Databases (Console)__
+        * __Lab: Creating Spanner Instances and  Databases (CLI and Terraform)__
 
 1. Optimizing Spanner Schemas
     * Spanner Architecture
@@ -149,14 +147,12 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
 
 
 ## Labs
-* __Lab: Creating Spanner Instances (Console)__
-* __Lab: Creating Spanner Instances (CLI and Terraform)__
-* __Lab: Creating Spanner Databases (Console)__
-* __Lab: Creating Spanner Databases (CLI and Terraform)__
-* __Lab: Choosing Primary Keys__
-* __Lab: Managing Relationships with Foreign Keys and Interleaved Tables__
+* __Lab: Creating Spanner Instances and Databases (Console)__
+* __Lab: Creating Spanner Instances and Databases  (CLI and Terraform)__
 * __Lab: Programming Spanner Applications with Python__
 * __Lab: Running Queries and Transactions__
+* __Lab: Choosing Primary Keys__
+* __Lab: Managing Relationships with Foreign Keys and Interleaved Tables__
 * __Lab: Deploying Spanner Applications with Cloud Functions and Cloud Run__
 * __Lab: Migrating Data to and from Spanner with Dataflow__
 * __Lab: Administering Spanner Databases__
