@@ -129,9 +129,9 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
 
 1. Spanner Administration
     * Managing Data
-        * Backup
-        * Restore
-        * Exporting Data
+        * Backup and Restore
+        * Point-in-Time-Recovery
+        * Importing and Exporting Data
         * Bulk Imports
     * Managing Change
         * Altering Spanner Schemas
@@ -141,14 +141,8 @@ This course is not an introduction to Google Cloud. Some prior Google Cloud expe
     * Operations
         * Monitoring
         * Logging 
-    * Performance Best-Practices
-        * Bulk loading best practices
-        * DML best practices
-        * Query plan visualizer
-        * Troubleshooting latency
-        * Using statistics (read, transaction, lock)
-        * Request and transaction tags
-        * Sessions
+        * Query Insights
+        * Key Visualizer
         * __Lab: Administering Spanner Databases__
 
 1. Capstone Project
