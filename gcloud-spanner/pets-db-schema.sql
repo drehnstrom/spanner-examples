@@ -9,16 +9,6 @@ CREATE TABLE Pets (
      PetType STRING(MAX) NOT NULL,
      PetName STRING(MAX) NOT NULL,
      Breed STRING(MAX) NOT NULL,
-     --CONSTRAINT FK_OwnerPet FOREIGN KEY (OwnerID) REFERENCES Owners (OwnerID),
-) PRIMARY KEY (PetID);
-
-CREATE TABLE Pets2 (
-     PetID INT64 NOT NULL, 
-     OwnerID STRING(36) NOT NULL, 
-     PetType STRING(MAX) NOT NULL,
-     PetName STRING(MAX) NOT NULL,
-     Breed STRING(MAX) NOT NULL,
-     --CONSTRAINT FK_OwnerPet FOREIGN KEY (OwnerID) REFERENCES Owners (OwnerID),
 ) PRIMARY KEY (PetID);
 
 CREATE INDEX PetsByOwnerID ON Pets(OwnerID);
