@@ -1,2 +1,2 @@
-project_id = "roi-spanner"
+project_id = "YOUR-PROJECT-ID-HERE"
 region = "us-central1"
