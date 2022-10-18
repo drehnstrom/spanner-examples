@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you create Spanner Instances and databases using the Google Cloud Console.
+In this lab, you create Spanner instances and databases using the Google Cloud Console.
 
 ## Objectives
 
