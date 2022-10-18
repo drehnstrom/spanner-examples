@@ -1,4 +1,4 @@
-# LAB TITLE
+# Programming Spanner Applications with Python
 
 ## Overview
 
