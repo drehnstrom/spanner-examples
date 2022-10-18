@@ -1,16 +1,15 @@
 ---
 schema_version: 1
-title: 'Asymmetric Encryption to Sign and Verify Data [Eng]'
-description: In this lab, you use asymmetric encryption to sign a document and then use the signature to verify if the document has been modified. 
+title: 'Choosing Primary Keys'
+description: In this lab, you examine and run the Python code for generating Spanner primary keys in various formats.
 default_locale: en
-duration: 40
-max_duration: 40
+duration: 60
+max_duration: 60
 level: introductory
 tags:
-- ROI
-- KMS
-- Signature
-- Asymmetric encryption
+- Spanner
+- Primary keys
+- Python
 credits: 0
 tagline:
 resources: []
@@ -25,10 +24,6 @@ environment:
     - project: project_0
       roles:
       - roles/editor  
-      - roles/cloudkms.admin
-      - roles/servicemanagement.quotaAdmin
-      - roles/cloudkms.cryptoKeyEncrypterDecrypter
-      - roles/cloudkms.cryptoKeySignerVerifier
   student_visible_outputs:
   - label: Open Google Console
     reference: project_0.console_url
