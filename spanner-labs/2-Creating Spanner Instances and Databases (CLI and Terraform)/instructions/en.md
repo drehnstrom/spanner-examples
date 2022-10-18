@@ -2,13 +2,13 @@
 
 ## Overview
 
-In this lab, you will automate the creation of Spanner Instances and databases using the Google Cloud SDK, the Command Line Interface (CLI), and Terraform.
+In this lab, you automate the creation of Spanner instances and databases using the Google Cloud SDK, the Command Line Interface (CLI), and Terraform.
 
 ## Objectives
 
 In this lab, you learn how to:
-* Create instances and databases using the gcloud CLI
-* Automate Spanner infrastructure using Terraform
+* Create instances and databases using the gcloud CLI.
+* Automate Spanner infrastructure using Terraform.
 
 
 ## Setup and Requirements
@@ -31,25 +31,25 @@ In this lab, you learn how to:
 gcloud config set project <QWIKLABS_PROJECT_ID>
 ```
 
-3. From the Cloud Shell prompt, run the following command to create a Spanner Instance named `test-spanner-instance`. <div>Note the parameters for Spanner configuration and capacity. If you are asked to __Authorize__ the command, then do so. </div>
+3. From the Cloud Shell prompt, run the following command to create a Spanner instance named `test-spanner-instance`. <div>Note the parameters for Spanner configuration and capacity. If you are asked to __Authorize__ the command, then do so. </div>
 
 ```
 gcloud spanner instances create test-spanner-instance --config=regional-us-central1 --description="test-spanner-instance" --processing-units=100
 ```
 
-4. The command should not take long. In the Console, navigate to the Spanner service, and verify the instance was created. <div>To see the instance, you could also run the command below. Try that now. </div>
+4. The command should not take long. In the Console, navigate to the Spanner service and verify the instance was created. <div>To see the instance, you could also run the command below. Try that now. </div>
 
 ```
 gcloud spanner instances list
 ```
 
-5. You want to create the Pets database, but first you will want a file that contains the DDL code. Type the following command to create the file and open it in the Nano code editor. 
+5. Before creating the Pets database, you need a file that contains the DDL code. Type the following command to create the file and open it in the Nano code editor. 
 
 ```
 nano pets-db-schema.sql
 ```
 
-6. Paste the following code into Nano. Then, type `Ctrl+x`, then `y`, and then hit the `[Enter]` key to save the file. 
+6. Paste the following code into Nano. Type `Ctrl+X`, then `Y`, and then press the ENTER key to save the file. 
 
 ```
 CREATE TABLE Owners (
@@ -72,20 +72,20 @@ CREATE TABLE Pets (
 gcloud spanner databases create pets-db --instance=test-spanner-instance --database-dialect=GOOGLE_STANDARD_SQL --ddl-file=./pets-db-schema.sql
 ```
 
-7. Now, you will insert an Owner and all the dogs he has owned. The primary keys for Owners and Pets use UUIDs. Enter the following command to create a UUID for the owner and store it in a variable. 
+7. Insert an Owner and all of the dogs owned. The primary keys for Owners and Pets use UUIDs. Enter the following command to create a UUID for the owner and store it in a variable. 
 
 ```
 owner_uuid=$(cat /proc/sys/kernel/random/uuid)
 echo $owner_uuid
 ```
 
-8. Now, insert the Owner Doug. <div>__Note:__ the `--data` parameter that allows you to pass the fields in name-value pairs. </div>
+8. Insert the Owner Doug. <div>__Note:__ the `--data` parameter that allows you to pass the fields in name-value pairs. </div>
 
 ```
 gcloud spanner rows insert --table=Owners --database=pets-db --instance=test-spanner-instance --data=OwnerID=$owner_uuid,OwnerName=Doug
 ```
 
-9. Next, insert all of Doug's dogs with the following commands. 
+9. Insert all of Doug's dogs with the following commands. 
 
 ```
 gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spanner-instance --data=PetID=$(cat /proc/sys/kernel/random/uuid),OwnerID=$owner_uuid,PetName='Rusty',PetType='Dog',Breed='Poodle'
@@ -107,15 +107,15 @@ gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spann
 gcloud spanner databases execute-sql pets-db --instance=test-spanner-instance --sql='SELECT o.OwnerName, p.PetName, p.PetType, p.Breed FROM Owners as o JOIN Pets AS p ON o.OwnerID = p.OwnerID' 
 ```
 
-11. Go to the Console and find the Instance, Database, Tables, and run a query to see the data. 
+11. Go to the Console and find the instance, database, tables, and run a query to see the data. 
 
-12. We can delete the database with the following command. 
+12. Delete the database with the following command. 
 
 ```
 gcloud spanner databases delete pets-db --instance=test-spanner-instance 
 ```
 
-13. In the Console verify the database was deleted. 
+13. In the Console, verify the database was deleted. 
 
 14. Lastly, delete the instance with the following command. 
 
@@ -123,26 +123,26 @@ gcloud spanner databases delete pets-db --instance=test-spanner-instance
 gcloud spanner instances delete test-spanner-instance --quiet
 ```
 
-__Note:__ The `--quiet` parameter runs the command without prompting the user. This could have been added to the prior command as well. This is usefull if you are writing an automated pipeline, and there would be no user to ask. 
+__Note:__ The `--quiet` parameter runs the command without prompting the user. This could have been added to the prior command as well. This is usefull if you are writing an automated pipeline and there would be no user to ask. 
 
-15. In the console, verify that the instance was deleted. 
+15. In the Console, verify that the instance was deleted. 
 
 ## Task 2. Automate Spanner infrastructure using Terraform
 
-1. Create a folder for your Terraform files, and change to it using the following commands.
+1. Create a folder for your Terraform files and change to it using the following commands.
 
 ```
 mkdir terraform-spanner
 cd terraform-spanner
 ```
 
-2. You will need a number of files for the Terraform module. Run the following command to just create the empty files. 
+2. You need a number of files for the Terraform module. Run the following command to create the empty files. 
 
 ```
 touch main.tf provider.tf terraform.tfvars variables.tf
 ```
 
-3. Click the __Open Editor__ button to open the code editor. From the Explorer pane on the left, find the `terraform-spanner` folder you just created and expand it. Select the `provider.tf` file to open it in the editor, and add the following code to it. 
+3. Click the __Open Editor__ button to open the code editor. From the Explorer pane on the left, find the `terraform-spanner` folder you just created and expand it. Select the `provider.tf` file to open it in the editor and add the following code to it. 
 
 ```
 terraform {
@@ -159,9 +159,9 @@ provider "google" {
   region  = var.region
 }
 ```
-__Note:__ The code in the terraform block downloads the Google provider from Hashicorp's website. The code in the provider block, configures the provider to use the correct Project ID and Region which you will set as variables in a minute. 
+__Note:__ The code in the Terraform block downloads the Google provider from Hashicorp's website. The code in the provider block configures the provider to use the correct Project ID and Region which you set as variables later. 
 
-4. Now, open the file `main.tf`. Add the following resource block. This code creates the Spanner Instance. 
+4. Open the file `main.tf` and add the following resource block. This code creates the Spanner instance. 
 
 ```
 resource "google_spanner_instance" "db-instance" {
@@ -189,7 +189,7 @@ resource "google_spanner_database" "test-database" {
 }
 ```
 
-5. Open the file `variables.tf`. In this file, you will declare the variables used in the Terraform module. Add the following code. 
+5. Open the file `variables.tf`. In this file, you declare the variables used in the Terraform module. Add the following code. 
 
 ```
 variable "deletion_protection" {
@@ -219,29 +219,29 @@ variable "region" {
 }
 ```
 
-6. All the variables except for `project_id` and `region` have defaults. You will use the `terraform.tfvars` file to set those variable values. Open that file and add the following. 
+6. All the variables except for `project_id` and `region` have defaults. You use the `terraform.tfvars` file to set those variable values. Open that file and add the following. 
 
 ```
 project_id = "YOUR-PROJECT-ID-HERE"
 region = "us-central1"
 ```
 
-__Note:__ You need to enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. 
+__Note:__ You must enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. 
 
 
-7. Let's see if it works. Click the __Open Terminal__ button. At the command prompt enter the following. 
+7. Let's see if it works. Click the __Open Terminal__ button. At the command prompt, enter the following. 
 
 ```
 terraform init
 ```
 
-8. Assuming there were no errors with the previous command, enter the following, and analyze the output. It should say that 2 resources will be added. 
+8. Assuming there were no errors with the previous command, enter the following and analyze the output. It should say that two resources will be added. 
 
 ```
 terraform plan
 ```
 
-9. Lasty, enter the following command to create the Spanner Instance and Pets database. You will need to type `yes` when prompted. 
+9. Lasty, enter the following command to create the Spanner instance and Pets database. You must type `yes` when prompted. 
 
 ```
 terraform apply 
@@ -249,13 +249,13 @@ terraform apply
 
 10. Wait for the Terraform command to complete. In the Console, navigate to the Spanner service and verify that the instance and database were created. 
 
-11. Back in the terminal, enter the following command to delete the Spanner instance. 
+11. Return to the terminal and enter the following command to delete the Spanner instance. 
 
 ```
 terraform destroy -auto-approve
 ```
 
-### **Congratulations!** You have automated the creation of Spanner Instances and Databases using the Google Cloud SDK, the Command Line Interface (CLI), and Terraform.
+### **Congratulations!** You have automated the creation of Spanner instances and databases using the Google Cloud SDK, the Command Line Interface (CLI), and Terraform.
 
 
 ![[/fragments/endqwiklab]]
