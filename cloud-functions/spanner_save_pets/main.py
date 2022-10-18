@@ -1,20 +1,10 @@
 from google.cloud import spanner
-import os
 import base64
 import uuid
 import json
 
-# Get the Instance ID and database ID from environment variables
-# Use defaults if they don't exist. 
-if "INSTANCE_ID" in os.environ:
-    instance_id = os.environ["INSTANCE_ID"]
-else:
-    instance_id = 'spannerdbsrv'
-
-if "DATABASE_ID" in os.environ:
-    database_id = os.environ["DATABASE_ID"]
-else:
-    database_id = 'pets-db'
+instance_id = 'test-spanner-instance'
+database_id = 'pets-db'
 
 client = spanner.Client()
 instance = client.instance(instance_id)
@@ -46,7 +36,8 @@ def spanner_save_pets(event, context):
     def insert_owner_pet(transaction, data, owner_exists):
         try:
             row_ct = 0
-            params = { "owner_id": owner_id,                                 "owner_name": data["OwnerName"],
+            params = { "owner_id": owner_id,
+            "owner_name": data["OwnerName"],
             "pet_id": pet_id,
             "pet_name": data["PetName"],
             "pet_type": data["PetType"],
@@ -61,7 +52,7 @@ def spanner_save_pets(event, context):
                             "breed": spanner.param_types.STRING,
                             }
 
-                # Only add the Owner if they don't exist already
+            # Only add the Owner if they don't exist already
             if not owner_exists:
                 row_ct = transaction.execute_update(
                     """INSERT Owners (OwnerID, OwnerName) VALUES (@owner_id, @owner_name)""",
