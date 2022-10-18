@@ -2,15 +2,15 @@
 
 ## Overview
 
-In this lab, you will create Spanner Instances and databases using the Google Cloud Console.
+In this lab, you create Spanner Instances and databases using the Google Cloud Console.
 
 ## Objectives
 
 In this lab, you learn how to:
-* Create Free Trial Spanner instances 
-* Compare Spanner configuration options
-* Create Spanner databases using the console 
-* Create Spanner databases using the PostgreSQL dialect
+* Create free trial Spanner instances. 
+* Compare Spanner configuration options.
+* Create Spanner databases using the Console. 
+* Create Spanner databases using the PostgreSQL dialect.
 
 
 ## Setup and Requirements
@@ -22,19 +22,19 @@ In this lab, you learn how to:
 
 
 
-## Task 1. Create a Free Trial Instance
+## Task 1. Create a free trial instance
 
 
-1. On the Google Cloud Console title bar, click the __Navigation Menu__ (![nav menu icon](img/nav-menu.png)). Scroll to the Database section and click on __Spanner__.
+1. On the Google Cloud Console title bar, click the __Navigation Menu__ (![nav menu icon](img/nav-menu.png)). Scroll to the Database section and click __Spanner__.
 
-2. Click the __Start a Free Trial__ button. Name your instance `my-free-instance`. Select any region you like from the configuration dropdow, and then click __Create Free Trial Instance__.
+2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown, and then click __Create Free Trial Instance__.
 
 __Note:__ If your are prompted to run the turotial, do not. 
 
 
-3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button. Name your database `my-database`, choose __Google Standard SQL__, scroll down and click the __Create__ button. 
+3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __Create__ button. 
 
-4. Your database should appear appear in the Databases table. Click on it to go to its details page. 
+4. Your database should appear in the Databases table. Click on it to go to its details page. 
 
 5. Click the __Write DDL__ button (![write ddl icon](img/write-ddl.png)) in the toolbar. 
 
@@ -47,9 +47,9 @@ CREATE TABLE MyTable (
 ) PRIMARY KEY (TableID);
 ```
 
-7. Wait for the operation to complete. Your table should appear in the list of tables for that database. Click on the table to see its details. 
+7. Wait for the operation to complete. Your table should appear in the list of tables for that database. Click the table to see its details. 
 
-8. Hover of the Table navigation pane on the left, and select the __Data__ menu. 
+8. Hover over the Table navigation pane on the left, and select the __Data__ menu. 
 
 9. Change the query so it is similar to what is shown below and run it. Assuming you have no syntax errors, it should tell you 1 row was inserted. 
 
@@ -61,34 +61,34 @@ VALUES
   (1, "Here is some data");
 ```
 
-10. In the same way, add a few more records. Don't forget to change the `TableID` field each time so it is unique. You can enter any values you like for `Field1`. 
+10. Repeat the previous steps to add a few more records. Don't forget to change the `TableID` field each time so it is unique. You can enter any values you like for `Field1`. 
 
-11. Click the __Clear Query__. Run the following Select query. 
+11. Click the __Clear Query__ and run the following SELECT query. 
 
 ```
 SELECT * FROM MyTable;
 ```
 
-12. Examin the reults in the Console. 
+12. Examine the reults in the Console. 
 
 ![Query Results](img/query-results.png)
 
-__Question:__ Why do you suppose you multiply SELECT times FROM in the statement above?
+__Question:__ Why do you multiply SELECT times FROM in the statement above?
 
 
-## Task 2. Examining Spanner Configuration Options
+## Task 2. Examining Spanner configuration options
 
-1. In the top left corner of the Spanner page, click on the __All instances__ link. 
+1. In the top-left corner of the Spanner page, click the __All instances__ link. 
 
-2. Click the __Create Instance__ button. Name your instance `my-second-instance`. 
+2. Click the __Create Instance__ button and name your instance `my-second-instance`. 
 
-3. In the __Choose a configuration__ section, click on the __Compare Region Configurations__ button. <div> In the resulting pane you need to select two configurations to compare. In the first dropdown, select the Regional configuration `us-central1 (Iowa)`. In the second dropdown, select Multi-region configuration `name3 (Northern Virginia/South Carolina/Iowa)`. </div><div>Take note of the differences between Replicas, Availability, and the costs. </div><div>Now, change the first dropdown to the Multi-region configuration `nam-eur-asia1 (Iowa/Oklahoma/Belgium/Taiwan/South Carolina)` Compare the replicas and the costs between the two multi-region configuration. </div>
+3. In the __Choose a configuration__ section, click the __Compare Region Configurations__ button. <div> In the resulting pane, you must select two configurations to compare. In the first dropdown, select the Regional configuration `us-central1 (Iowa)`. In the second dropdown, select Multi-region configuration `name3 (Northern Virginia/South Carolina/Iowa)`. </div><div>Take note of the differences between replicas, availability, and the costs. </div><div>Change the first dropdown to the Multi-region configuration `nam-eur-asia1 (Iowa/Oklahoma/Belgium/Taiwan/South Carolina)` and compare the replicas and the costs between the two multi-region configuration. </div>
 
-4. Close the __Compare region configurations__ pane. Back in the configuration screen, set the configuration to __Regional__ and `us-central1 (Iowa)`.
+4. Close the __Compare region configurations__ pane. Return to the configuration screen and set the configuration to __Regional__ and `us-central1 (Iowa)`.
 
 5. In the __Allocate compute capacity__ section, change the __Unit__ dropdown to __Nodes__. 
 
-6. In the __Summary__ section note the costs and maximum storage capacity. Increase the number of nodes to see the changes to costs and capacity. 
+6. In the __Summary__ section, note the costs and maximum storage capacity. Increase the number of nodes to see the changes to costs and capacity. 
 
 7. In the __Allocate compute capacity__ section, change the __Unit__ dropdown to __Processing Units__. Processing units are added in increments of 100. Set the value to 100 (*this is the smallest Spanner instance possible*).
 
@@ -116,16 +116,16 @@ CREATE TABLE Pets (
 ) PRIMARY KEY (PetID);
 ```
 
-3. Try to add some records to the tables 
+3. Add some records to the tables. 
 
-__Note:__ The primary keys for this database are not integers, but 36 character strings. These keys are meant to be universally unique identifiers (UUIDs). You could just enter any unique strings less than or equal to 36 characters and it would work. If you want to generate proper UUIDs though, you can make the following request in a browser, and at the top of the page a UUID will be shown. 
+__Note:__ The primary keys for this database are not integers, but 36 character strings. These keys are meant to be universally unique identifiers (UUIDs). You could enter any unique strings less than or equal to 36 characters and it would work. If you want to generate proper UUIDs though, you can make the following request in a browser and at the top of the page, a UUID will be shown. 
 
 ```
 https://duckduckgo.com/?q=uuid
 ```
 
 
-## Bonus Task 4. Creating PostgreSQL database
+## Bonus Task 4. Creating a PostgreSQL database
 
 1. Create a second database in your Spanner instance. This time, choose PostgreSQL when prompted to select a database dialect. 
 
@@ -147,7 +147,7 @@ CREATE TABLE Pets (
     );
 ```
 
-### **Congratulations!** You have created Spanner Instances and databases using the Google Cloud Console.
+### **Congratulations!** You have created Spanner instances and databases using the Google Cloud Console.
 
 
 ![[/fragments/endqwiklab]]
