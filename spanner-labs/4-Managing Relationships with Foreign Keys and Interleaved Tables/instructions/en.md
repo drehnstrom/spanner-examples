@@ -2,12 +2,12 @@
 
 ## Overview
 
-In this lab, you will create a database with multiple tables, and use both primary-foreign key contraints, and interleaved tables to manage relationships. 
+In this lab, you create a database with multiple tables, and use both primary-foreign key contraints and interleaved tables to manage relationships. 
 
 ## Objectives
 
 In this lab, you learn how to:
-* Create a relational database with proper primary keys and relationships optimized for Spanner 
+* Create a relational database with proper primary keys and relationships optimized for Spanner. 
 
 ## Setup and Requirements
 
@@ -15,7 +15,7 @@ In this lab, you learn how to:
 
 ![[/fragments/cloudshell]]
 
-## Task 1. Creating on Orders database
+## Task 1. Creating an Orders database
 
 1. In previous labs, you have learned how to create Spanner instances, databases, and tables using the Google Cloud Console, the gcloud CLI, and Terraform. Using the methood of your choice, create a database with the following criteria. _Feel free to modify the details if you like, or even use your own use case. The point is to create the database and tables without detailed instructions._ 
 
@@ -48,17 +48,17 @@ In this lab, you learn how to:
 | Price         
 
 ### __Data types and primary keys__
-It is up to you what data types to use, and how to create the primary keys 
+It is up to you what data types to use, and how to create the primary keys. 
 
 ### __Relationships__
 
 Customers have 0 or more Orders
-* Use a primary-foreign key relationship between the Customers and Orders table
+* Use a primary-foreign key relationship between the Customers and Orders table.
 
 Orders have 1 or more Details
-* Use an interleaved table for the relationship between the Orders and OrderDetails table
+* Use an interleaved table for the relationship between the Orders and OrderDetails table.
 
-## To help, below are sample DDL statements for the Pets database you used earlier
+## Below are sample DDL statements for the Pets database you used earlier.
 
 ### Owners table
 
@@ -69,7 +69,7 @@ CREATE TABLE Owners (
 ) PRIMARY KEY (OwnerID);
 ```
 
-### Pets table with Primary Foreign keys
+### Pets table with primary-foreign keys
 
 ```
 CREATE TABLE Pets (
@@ -97,7 +97,7 @@ CREATE TABLE Pets (
 
 
 
-### **Congratulations!** You have created a database with multiple tables, and used both primary-foreign key contraints, and interleaved tables to manage relationships.
+### **Congratulations!** You have created a database with multiple tables, and used both primary-foreign key contraints and interleaved tables to manage relationships.
 
 
 ![[/fragments/endqwiklab]]
