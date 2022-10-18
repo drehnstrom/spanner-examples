@@ -1,7 +1,7 @@
 
 gcloud pubsub topics create new-pet-topic
 
-gcloud functions deploy spanner_save_pets --runtime python310 --trigger-topic=new-pet-topic --set-env-vars INSTANCE_ID=spannerdbsrv,DATABASE_ID=pets-db
+gcloud functions deploy spanner_save_pets --runtime python310 --trigger-topic=new-pet-topic --region=us-central1 --quiet
 
 
 # Message format
