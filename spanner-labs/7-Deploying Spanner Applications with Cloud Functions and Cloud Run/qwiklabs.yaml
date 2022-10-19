@@ -1,17 +1,15 @@
 ---
 schema_version: 1
-title: 'Creating Spanner Instances and Databases (CLI and Terraform)'
-description: In this lab, you automate the creation of Spanner instances and databases using the Google Cloud SDK, the Command Line Interface (CLI), and Terraform.
+title: 'Deploying Spanner Applications with Cloud Functions and Cloud Run'
+description: In this lab, you write applications that utilize Spanner databases, and deploy them to both Cloud Functions and Cloud Run. You also install, configure, and enable the Spanner emulator for use in development environments. 
 default_locale: en
 duration: 60
 max_duration: 60
 level: introductory
 tags:
 - Spanner
-- Instances
-- Databases
-- CLI
-- Terraform
+- Cloud Run
+- Cloud Functions
 credits: 0
 tagline:
 resources: []
