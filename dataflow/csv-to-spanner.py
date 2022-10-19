@@ -46,7 +46,7 @@ def main(argv=None, save_main_session=True):
     parser.add_argument(
         '--table',
         dest='table',
-        default = 'pets2',      
+        default = 'pets',      
         help='Spanner table.')
     known_args, pipeline_args = parser.parse_known_args(argv)
 
@@ -57,7 +57,7 @@ def main(argv=None, save_main_session=True):
         pets = p | 'Read CSV to dataframe' >> read_csv(known_args.input)
         pets = ( convert.to_pcollection(pets)
             | 'Convert to PetRow class' >> beam.Map(lambda x : PetRow(**(x._asdict())))
-            | 'Reverse bits in PetID' >> beam.Map(lambda x : PetRow(reverse_bits(x.PetID), x.OwnerID, x.PetName, x.PetType, x.Breed))
+            | 'Reverse bits in PetID' >> beam.Map(lambda x : PetRow(reverse_bits(x.PetID), reverse_bits(x.OwnerID), x.PetName, x.PetType, x.Breed))
         )
         pets | 'Write to Spanner' >> SpannerInsert(
                     project_id=projectid,

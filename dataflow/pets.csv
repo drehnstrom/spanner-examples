@@ -1,7 +1,7 @@
 PetID,OwnerID,PetName,PetType,Breed
-100,6df46cb8-2a69-4fa3-be10-35ff9358461a,Gigi,Dog,Retriever
-101,6df46cb8-2a69-4fa3-be10-35ff9358461a,Bree,Dog,Mutt
-102,6df46cb8-2a69-4fa3-be10-35ff9358461a,Noir,Dog,Schnoodle
-103,e3dfd587-5d59-4e15-9b8d-d160409f43ed,Bree,Dog,Mutt
-104,e3dfd587-5d59-4e15-9b8d-d160409f43ed,Noir,Dog,Schnoodle
-105,e3dfd587-5d59-4e15-9b8d-d160409f43ed,Gigi,Dog,Retriever
+100,1,Gigi,Dog,Retriever
+101,1,Bree,Dog,Mutt
+102,1,Noir,Dog,Schnoodle
+103,2,Bree,Dog,Mutt
+104,2,Noir,Dog,Schnoodle
+105,3,Gigi,Dog,Retriever
