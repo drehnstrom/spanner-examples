@@ -1,0 +1,35 @@
+---
+schema_version: 1
+title: 'Managing Relationships with Foreign Keys and Interleaved Tables'
+description: In this lab, you create a database with multiple tables, and use both primary-foreign key contraints and interleaved tables to manage relationships. 
+default_locale: en
+duration: 60
+max_duration: 60
+level: introductory
+tags:
+- Spanner
+- Foreign keys
+- Interleaved tables
+credits: 0
+tagline:
+resources: []
+environment:
+  resources:
+  - type: gcp_project
+    id: project_0
+    ssh_key_user: user_0
+  - type: gcp_user
+    id: user_0
+    permissions:
+    - project: project_0
+      roles:
+      - roles/editor  
+  student_visible_outputs:
+  - label: Open Google Console
+    reference: project_0.console_url
+  - label: Username
+    reference: user_0.username
+  - label: Password
+    reference: user_0.password
+  - label: GCP Project ID
+    reference: project_0.project_id
