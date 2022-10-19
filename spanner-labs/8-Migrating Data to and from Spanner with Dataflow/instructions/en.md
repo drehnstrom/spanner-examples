@@ -95,7 +95,7 @@ python csv-to-spanner.py \
     --temp_location gs://$DEVSHELL_PROJECT_ID-data-flow/tmp/
 ```
 
-### **Congratulations!** You have created a database with multiple tables, and used both primary-foreign key contraints and interleaved tables to manage relationships.
+### **Congratulations!** You used Dataflow and Apache Beam to migrate data into Spanner.
 
 
 ![[/fragments/endqwiklab]]
