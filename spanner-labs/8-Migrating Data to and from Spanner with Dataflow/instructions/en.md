@@ -81,7 +81,7 @@ gsutil cp ./pets.csv gs://$DEVSHELL_PROJECT_ID-data-flow
 
 2. Navigate to Cloud Storage in the Console and verify that the bucket was created and the file was copied. 
 
-3. Now, run the pipeline using Dataflow with the folloing command. 
+3. Now, run the pipeline using Dataflow with the following command. 
 
 # Joey, I don't know why this doesn't work. Can you have a look?
 
