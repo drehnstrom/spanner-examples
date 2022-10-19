@@ -7,10 +7,10 @@ In this lab, you write applications that utilize Spanner databases, and deploy t
 ## Objectives
 
 In this lab, you learn how to:
-* Deploy Cloud Functions that read and write to Spanner databases
-* Set up and use the Spanner Emulator for development
-* Build a REST API that allows you to read and write Spanner data
-* Deploy a REST API to Google Cloud Run
+* Deploy Cloud Functions that read and write to Spanner databases.
+* Set up and use the Spanner emulator for development.
+* Build a REST API that allows you to read and write Spanner data.
+* Deploy a REST API to Google Cloud Run.
 
 
 ## Setup and Requirements
@@ -21,7 +21,7 @@ In this lab, you learn how to:
 ![[/fragments/cloudshell]]
 
 
-## Task 1. Create a Database with Test Data
+## Task 1. Create a database with test data
 
 1. On the Google Cloud Console title bar, click __Activate Cloud Shell__ (![cloud shell icon](img/cloud_shell_icon.png)). If prompted, click __Continue__.
 
@@ -56,7 +56,7 @@ INTERLEAVE IN PARENT Owners ON DELETE CASCADE
 ENDOFFILE
 ```
 
-4. Run the following commands to create a Spanner Instance and database. 
+4. Run the following commands to create a Spanner instance and database. 
 
 ```
 gcloud spanner instances create test-spanner-instance --config=regional-us-central1 --description="test-spanner-instance" --processing-units=100
@@ -79,7 +79,7 @@ gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spann
 gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spanner-instance --data=PetID=$(cat /proc/sys/kernel/random/uuid),OwnerID=$owner_uuid,PetName='Gigi',PetType='Dog',Breed='Retriever'
 ```
 
-## Task 2. Create a Cloud Function to Read from Spanner
+## Task 2. Create a Cloud Function to read from Spanner
 
 1. Create a folder for your first Cloud Function with the following command.
 
@@ -136,7 +136,7 @@ def spanner_get_pets(request):
 gcloud functions deploy spanner_get_pets --runtime python310 --trigger-http --allow-unauthenticated --region=us-central1 --quiet
 ```
 
-6. When the command completes, in the Console, navigate to the __Cloud Functions__ service. Click on the __spanner_get_pets__ function, then on __Trigger__. Open the Trigger URL in the browser and the test data should be returned. 
+6. When the command completes, in the Console, navigate to the __Cloud Functions__ service. Click the __spanner_get_pets__ function, then on __Trigger__. Open the Trigger URL in the browser and the test data should be returned. 
 
 ## Task 3. Create a Cloud Function to Write to Spanner
 
@@ -147,7 +147,7 @@ mkdir ~/lab-files/spanner_save_pets
 cd ~/lab-files/spanner_save_pets
 ```
 
-2. Create 2 files for your application: `main.py` and `requirements.txt`.
+2. Create two files for your application: `main.py` and `requirements.txt`.
 
 ```
 touch main.py requirements.txt
@@ -159,7 +159,7 @@ touch main.py requirements.txt
 google-cloud-spanner==3.15.0
 ```
 
-4. In the `lab-files/spanner_get_pets/main.py` file add the following code that reads from the database and returns the pets. 
+4. In the `lab-files/spanner_get_pets/main.py` file, add the following code that reads from the database and returns the pets. 
 
 ```
 from google.cloud import spanner
@@ -240,27 +240,27 @@ def spanner_save_pets(event, context):
 
 ```
 
-5. Click the __Open Terminal__ button. This Cloud Function triggers on a __Pub/Sub__ message. For it to work, you first need to create the Pub/Sub Topic with the following command. 
+5. Click the __Open Terminal__ button. This Cloud Function triggers on a __Pub/Sub__ message. For it to work, you first need to create the Pub/Sub topic with the following command. 
 
 ```
 gcloud pubsub topics create new-pet-topic
 ```
 
-6. Now, deploy the Cloud Function with the following command. (_It will take a couple minutes for the command to complete._)
+6. Deploy the Cloud Function with the following command. (_It will take a few minutes for the command to complete._)
 
 ```
 gcloud functions deploy spanner_save_pets --runtime python310 --trigger-topic=new-pet-topic --region=us-central1 --quiet
 ```
 
-6. When the command completes, in the Console, navigate to the __Pub/Sub__ service. Click on the __new-pet-topic__ topic to view its details. <div>On the Details page, click the __Messages__ tab, then click the __Publish Message__ button. </div><div>Enter the message below, then click the __Publish__ button. __Note__: the message is in JSON format and has to use the correct schema as shown for the func tion to work. </div>
+6. When the command completes, in the Console, navigate to the __Pub/Sub__ service. Click the __new-pet-topic__ topic to view its details. <div>On the Details page, click the __Messages__ tab, then click the __Publish Message__ button. </div><div>Enter the message below, then click the __Publish__ button. __Note__: the message is in JSON format and must use the correct schema as shown for the function to work. </div>
 
 ```
 {"OwnerName": "Jean", "PetName": "Sally", "PetType": "Frog", "Breed": "Green"}
 ```
 
-7. Go to the web page you used to test the read function. Refresh it in the browser, and check if the new owner, Jean, and her frog, Sally, were added. 
+7. Go to the web page you used to test the read function. Refresh it in the browser and check if the new owner, Jean, and her frog, Sally, were added. 
 
-## Task 4. Starting the Spanner Emulator
+## Task 4. Starting the Spanner emulator
 
 1. In the Cloud Shell terminal, run the following command to install and start the Spanner emulator. 
 
@@ -269,7 +269,7 @@ sudo apt-get install google-cloud-sdk-spanner-emulator
 gcloud emulators spanner start
 ```
 
-2. The emulator takes over the terminal, so in the Cloud Shell  toolbar, click the __+__ icon to open a new terminal tab. Run the following commands to configure the Cloud SDK to use the emulator. 
+2. The emulator takes over the terminal, so in the Cloud Shell toolbar, click the __+__ icon to open a new terminal tab. Run the following commands to configure the Cloud SDK to use the emulator. 
 
 ```
 gcloud config configurations create emulator
@@ -289,15 +289,15 @@ gcloud spanner instances create emulator-instance --config=emulator-config --des
 gcloud spanner databases create pets-db --instance=emulator-instance --database-dialect=GOOGLE_STANDARD_SQL --ddl-file=./pets-db-schema.sql
 ```
 
-4. To have the code from the Python client library use the emulator, the `SPANNER_EMULATOR_HOST` environment variable needs to be set. Run the following code now to do that. 
+4. To have the code from the Python client library use the emulator, the `SPANNER_EMULATOR_HOST` environment variable must be set. Run the following code now to do that. 
 
 ```
 export SPANNER_EMULATOR_HOST=localhost:9010
 ```
 
-## Task 5. Writing a REST API for the Spanner Pets Database
+## Task 5. Writing a REST API for the Spanner Pets database
 
-1. Create create a folder for the Cloud Run program files, and add create the files needed. 
+1. Create create a folder for the Cloud Run program files and add the files needed. 
 
 ```
 mkdir ~/lab-files/cloud-run
@@ -314,7 +314,7 @@ Flask
 Flask-RESTful
 ```
 
-3. In `main.py` add the following. This code uses Python Flask and the FLASK RESTful library to build a REST API for the Pets database. <div>__Note__ the use of the environment variables near the top of the file (_lines 11 to 20_). When you deploy to Cloud Run, you will set these variables to point to the real Spanner database. When the variables are not set, it will default to the emulator. 
+3. In `main.py`, add the following. This code uses Python Flask and the Flask-RESTful library to build a REST API for the Pets database. <div>__Note__: the use of the environment variables near the top of the file (_lines 11 to 20_). When you deploy to Cloud Run, you set these variables to point to the real Spanner database. When the variables are not set, it defaults to the emulator. 
 
 ```
 from google.cloud import spanner
@@ -507,9 +507,9 @@ if __name__ == "__main__":
 python main.py
 ```
 
-5. In the Cloud Shell toolbar, click on the __+__ icon agin to open a third terminal tab. 
+5. In the Cloud Shell toolbar, click the __+__ icon again to open a third terminal tab. 
 
-6. You can use curl to test the API. First add some records with a using HTTP POST commands. 
+6. You can use curl to test the API. First, add some records using HTTP POST commands. 
 
 ```
 curl -X POST --data '{"OwnerName": "Sue", "PetName": "Sparky", "PetType": "Cat", "Breed": "Alley"}'  http://localhost:8080/pets
@@ -520,17 +520,17 @@ curl -X POST --data '{"OwnerName": "Joey", "PetName": "Felix", "PetType": "Cat",
 
 ```
 
-7. See if the records were adding using an HTTP GET command. The records should be return in JSON format. 
+7. See if the records were added using an HTTP GET command. The records should be returned in JSON format. 
 
 ```
 curl http://localhost:8080/pets
 ```
 
-__Note__: These records were added to the emulator. Next you will deploy to Cloud Run and use the real Spanner instance. 
+__Note__: These records were added to the emulator. Next, you deploy to Cloud Run and use the real Spanner instance. 
 
-8. Type `exit` to close the third terminal tab. Then, type `Ctrl + c` to stop the Python program in the second terminal tab. Close the second tab by typing `exit`. <div>Return the the first terminal tab and stop the emulator by typing `Ctrl + c`.</div>
+8. Type `exit` to close the third terminal tab, then type `Ctrl + C` to stop the Python program in the second terminal tab. Close the second tab by typing `exit`. <div>Return to the first terminal tab and stop the emulator by typing `Ctrl + C`.</div>
 
-## Task 6. Deploying an App to Cloud Run
+## Task 6. Deploying an app to Cloud Run
 
 1. To deploy to Cloud Run, you need a Docker image. To create the image, you need a Dockerfile. Click the __Open Editor__ button and open the `Dockerfile` file you created earlier. Paste the following code into it. 
 
@@ -550,19 +550,19 @@ CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 main:app
 gcloud builds submit --tag=gcr.io/$GOOGLE_CLOUD_PROJECT/spanner-pets-api:v1.0 .
 ```
 
-3. Make sure Cloud Run is enable in your project. 
+3. Make sure Cloud Run is enabled in your project. 
 
 ```
 gcloud services enable run.googleapis.com
 ```
 
-4. Now, deploy the Cloud Run application using the following command. __Note__ how the environment variables are set in the command, so the code will use the Cloud Spanner instance, not the emulator. _It will take a couple minutes for the command to complete. 
+4. Now, deploy the Cloud Run application using the following command. __Note__ how the environment variables are set in the command, so the code will use the Cloud Spanner instance, not the emulator. It takes a couple minutes for the command to complete. 
 
 ```
 gcloud run deploy spanner-pets-api --image gcr.io/$GOOGLE_CLOUD_PROJECT/spanner-pets-api:v1.0 --update-env-vars INSTANCE_ID=test-spanner-instance,DATABASE_ID=pets-db --allow-unauthenticated --region=us-central1
 ```
 
-5. When the command completes, note the service URL and copy it to the clipboard. As you did with the emulator, you can use curl commands to test the API. First, create a variable to store the URL as show below. Make sure you paste your full URL including the `https://...`
+5. When the command completes, note the service URL and copy it to the clipboard. As you did with the emulator, you can use curl commands to test the API. First, create a variable to store the URL as shown below. Make sure you paste your full URL including the `https://...`
 
 ```
 pets_url=<YOUR_SERVICE_URL HERE>
@@ -584,20 +584,20 @@ curl -X POST --data '{"OwnerName": "Joey", "PetName": "Felix", "PetType": "Cat",
 curl $pets_url/pets
 ```
 
-8. In the Console, navigate to the __Cloud Run__ service. Click on your service to view its details. 
+8. In the Console, navigate to the __Cloud Run__ service and click your service to view its details. 
 
-9. Navigate to Spanner, and explore the instance and the database. 
+9. Navigate to Spanner and explore the instance and the database. 
 
-10. The API implements DELETE as well. Go back to the terminal and enter the following command to delete all the data. 
+10. The API implements DELETE as well. Return to the terminal and enter the following command to delete all the data. 
 
 ```
 curl -X DELETE $pets_url/pets
 ```
 
-11. From the Console, delete the Spanner instance so we are no longer being charged for it. 
+11. From the Console, delete the Spanner instance so you are no longer being charged for it. 
 
 
-### **Congratulations!** You have written applications that utilize Spanner databases, and deployed them to both Cloud Functions and Cloud Run. You also installed, configured, and enabled the Spanner emulator for use in development environments. 
+### **Congratulations!** You have written applications that utilize Spanner databases and deployed them to both Cloud Functions and Cloud Run. You also installed, configured, and enabled the Spanner emulator for use in development environments. 
 
 
 ![[/fragments/endqwiklab]]
