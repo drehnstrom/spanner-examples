@@ -12,7 +12,7 @@ from apache_beam.dataframe import convert
 
 class PetRow(NamedTuple):
     PetID: int
-    OwnerID: str
+    OwnerID: int
     PetName: str
     PetType: str
     Breed: str
