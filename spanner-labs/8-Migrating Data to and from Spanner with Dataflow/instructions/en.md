@@ -55,8 +55,7 @@ cat pets.csv
 8. Return to the terminal. Let's try to run this pipeline. First, you need to install the Python prerequisites with the following commands. 
 
 ```
-pip install apache-beam
-pip install apache-beam[gcp]
+pip install apache-beam[gcp]==2.41.0
 pip install apache-beam[dataframe]
 ```
 
@@ -72,7 +71,7 @@ python csv-to-spanner.py
 
 # Task 1. Running a Dataflow Job
 
-1. To ru the Job using Dataflow, you will need a Cloud Storage bucket for inputs, staging, and outputs. Use the commange below to create a bucket that contains your Project ID (_this should guarantee a unique name for the bucket_). Also, copy the `pets.csv` file into the bucket. 
+1. To run the Job using Dataflow, you will need a Cloud Storage bucket for inputs, staging, and outputs. Use the commange below to create a bucket that contains your Project ID (_this should guarantee a unique name for the bucket_). Also, copy the `pets.csv` file into the bucket. 
 
 ```
 gsutil mb -l us-central1 gs://$DEVSHELL_PROJECT_ID-data-flow
@@ -81,9 +80,12 @@ gsutil cp ./pets.csv gs://$DEVSHELL_PROJECT_ID-data-flow
 
 2. Navigate to Cloud Storage in the Console and verify that the bucket was created and the file was copied. 
 
-3. Now, run the pipeline using Dataflow with the following command. 
+3. Run the following command to ensure the Dataflow API is enabled in your project. 
 
-# Joey, I don't know why this doesn't work. Can you have a look?
+```
+gcloud services enable dataflow.googleapis.com
+```
+4. Now, run the pipeline using Dataflow with the following command. 
 
 ```
 python csv-to-spanner.py \
@@ -94,6 +96,10 @@ python csv-to-spanner.py \
     --project $DEVSHELL_PROJECT_ID \
     --temp_location gs://$DEVSHELL_PROJECT_ID-data-flow/tmp/
 ```
+
+5. As you did before, check to see if the data was added to your Spanner database. 
+
+6. Delete the Spanner instance so we are no longer being charged for it. 
 
 ### **Congratulations!** You used Dataflow and Apache Beam to migrate data into Spanner.
 
