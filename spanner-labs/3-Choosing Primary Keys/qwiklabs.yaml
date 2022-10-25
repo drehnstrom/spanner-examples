@@ -3,8 +3,8 @@ schema_version: 1
 title: 'Choosing Primary Keys'
 description: In this lab, you examine and run the Python code for generating Spanner primary keys in various formats.
 default_locale: en
-duration: 60
-max_duration: 60
+duration: 30
+max_duration: 30
 level: introductory
 tags:
 - Spanner
