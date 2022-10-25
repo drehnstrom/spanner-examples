@@ -3,8 +3,8 @@ schema_version: 1
 title: 'Challenge Lab: Administering a Spanner Database'
 description: In this lab, you use what you learned in class to create, administer, and monitor a Spanner database as you would have to do in a real-world environment. 
 default_locale: en
-duration: 60
-max_duration: 60
+duration: 240
+max_duration: 240
 level: introductory
 tags:
 - Spanner
