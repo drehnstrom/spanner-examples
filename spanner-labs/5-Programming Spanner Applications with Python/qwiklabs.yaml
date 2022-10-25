@@ -3,8 +3,8 @@ schema_version: 1
 title: 'Programming Spanner Applications with Python'
 description: In this lab, you run the Python code to create Spanner instances and databases. You also see how to create, retrieve, and delete records from databases using both the Google Standard SQL and PostgreSQL dialects.
 default_locale: en
-duration: 60
-max_duration: 60
+duration: 120
+max_duration: 120
 level: introductory
 tags:
 - Spanner
