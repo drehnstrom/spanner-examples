@@ -4,7 +4,7 @@ CREATE TABLE Customers (
      Name STRING(MAX) NOT NULL,
      Region STRING(MAX) NOT NULL,
      Address STRING(MAX) NOT NULL
-) PRIMARY KEY (CompanyID);
+) PRIMARY KEY (CustomerID);
 
 CREATE TABLE Orders (
      OrderID STRING(36) NOT NULL, 
