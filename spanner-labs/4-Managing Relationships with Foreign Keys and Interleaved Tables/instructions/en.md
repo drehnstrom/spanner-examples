@@ -24,10 +24,10 @@ In this lab, you learn how to:
 ### __Tables:__ Customer, Orders, OrderDetails
 
 ### __Customers table__
-
 | Fields         | Data Type 
 |----------------|-------------
-| Company        | STRING
+| CustomerID     | UUID
+| CompanyName    | STRING
 | Name           | STRING      
 | Region         | STRING        
 | Address        | STRING
@@ -35,16 +35,15 @@ In this lab, you learn how to:
 ### __Orders table__
 | Fields         | Data Type 
 |----------------|-------------
-| Date           | DATE
-| Customer       | STRING
-| Address        | STRING
+| OrderID        | UUID
+| OrderDate      | DATE
+| CustomerID     | STRING
 
 ### __OrderDetails table__
-
 | Fields        | Data Type  
 |---------------|-------------
-| Qty           | Int64
 | Product       | STRING
+| Qty           | Int64
 | Price         | FLOAT64
 
 ### __Primary keys__
