@@ -25,7 +25,7 @@ In this lab, you learn how to:
 
 1. On the Google Cloud Console title bar, click __Activate Cloud Shell__ (![cloud shell icon](img/cloud_shell_icon.png)). If prompted, click __Continue__.
 
-2. Run the following command to set your project ID, replacing `<QWIKLABS_PROJECT_ID>` with your Qwiklabs Google Cloud Project ID:
+2. Run the following command to set your project ID, replacing `<QWIKLABS_PROJECT_ID>` with your Qwiklabs Google Cloud Project ID (_refer back to the lab instructions, and you will find the Project ID in the pane on the left_.):
 
 ```
 gcloud config set project <QWIKLABS_PROJECT_ID>
