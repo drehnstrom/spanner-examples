@@ -42,8 +42,9 @@ In this lab, you learn how to:
 ### __OrderDetails table__
 | Fields        | Data Type  
 |---------------|-------------
-| Product       | STRING
-| Qty           | Int64
+| OrderID       | UUID
+| Product       | UUID
+| Qty           | INT64
 | Price         | FLOAT64
 
 ### __Primary keys__
@@ -89,10 +90,10 @@ CREATE TABLE Pets (
      PetID STRING(MAX) NOT NULL,     
      PetType STRING(MAX) NOT NULL,
      PetName STRING(MAX) NOT NULL,
-     Breed STRING(MAX) NOT NULL,) 
-     PRIMARY KEY (OwnerID,PetID),
-     INTERLEAVE IN PARENT Owners ON DELETE CASCADE
-     );
+     Breed STRING(MAX) NOT NULL
+     ) PRIMARY KEY (OwnerID,PetID)
+     , INTERLEAVE IN PARENT Owners ON DELETE CASCADE
+     ;
 ```
 
 
