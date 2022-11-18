@@ -14,6 +14,7 @@ CREATE TABLE Orders (
 ) PRIMARY KEY (OrderID);
 
 CREATE TABLE OrdersDetails (
+    OrderID STRING(36) NOT NULL, 
     ProductID STRING(36) NOT NULL,
     Qty INT64 NOT NULL,
     Price FLOAT64
