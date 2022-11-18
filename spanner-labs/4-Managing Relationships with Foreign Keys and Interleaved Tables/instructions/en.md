@@ -35,7 +35,7 @@ In this lab, you learn how to:
 ### __Orders table__
 | Fields         | Data Type 
 |----------------|-------------
-| Date           | Date
+| Date           | DATE
 | Customer       | STRING
 | Address        | STRING
 
