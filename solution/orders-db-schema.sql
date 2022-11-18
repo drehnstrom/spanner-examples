@@ -17,5 +17,5 @@ CREATE TABLE OrdersDetails (
     ProductID STRING(36) NOT NULL,
     Qty INT64 NOT NULL,
     Price FLOAT64
-) PRIMARY KEY (ProductID)
+) PRIMARY KEY (OrderID, ProductID)
   , INTERLEAVE IN PARENT Orders ON DELETE CASCADE;
