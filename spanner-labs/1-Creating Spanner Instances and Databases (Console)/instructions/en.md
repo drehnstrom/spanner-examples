@@ -27,7 +27,7 @@ In this lab, you learn how to:
 
 1. On the Google Cloud Console title bar, click the __Navigation Menu__ (![nav menu icon](img/nav-menu.png)). Scroll to the Database section and click __Spanner__.
 
-2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown, and then click __Create Free Trial Instance__.
+2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown, and then click __Create Free Trial Instance__. If you aren't sure what region to select, just choose `us-east5 (Columbus)`. 
 
 __Note:__ If your are prompted to run the turotial, do not. 
 
@@ -51,7 +51,7 @@ CREATE TABLE MyTable (
 
 8. Hover over the Table navigation pane on the left, and select the __Data__ menu. 
 
-9. Change the query so it is similar to what is shown below and run it. Assuming you have no syntax errors, it should tell you 1 row was inserted. 
+9. Change the query so it is similar to what is shown below and run it. Assuming you have no syntax errors, it should tell you 1 row was inserted. In the query you are simply inserting a record.  
 
 ```
 INSERT INTO
@@ -61,7 +61,7 @@ VALUES
   (1, "Here is some data");
 ```
 
-10. Repeat the previous steps to add a few more records. Don't forget to change the `TableID` field each time so it is unique. You can enter any values you like for `Field1`. 
+10. Repeat the previous steps to add a few more records. Don't forget to change the `TableID` field each time so it is unique. You can enter any values you like for `Field1`. Just add 2 or 3 more records. 
 
 11. Click the __Clear Query__ and run the following SELECT query. 
 
@@ -73,12 +73,11 @@ SELECT * FROM MyTable;
 
 ![Query Results](img/query-results.png)
 
-__Question:__ Why do you multiply SELECT times FROM in the statement above?
 
 
 ## Task 2. Examining Spanner configuration options
 
-1. In the top-left corner of the Spanner page, click the __All instances__ link. 
+1. In the top-left corner of the Spanner workspace area, click the __All instances__ link. 
 
 2. Click the __Create Instance__ button and name your instance `my-second-instance`. 
 
@@ -116,7 +115,21 @@ CREATE TABLE Pets (
 ) PRIMARY KEY (PetID);
 ```
 
-3. Add some records to the tables. 
+3. Add a couple owners and pets to the tables as you did earlier in the exercise. If you need some help, the insert queries would be similar to what is shown below. 
+
+```
+INSERT INTO
+  Owners (OwnerID, OwnerName)
+VALUES
+  ("ca9fdb5c-97b5-4030-91f2-5cf5d7573d59", "Doug");
+```
+
+```
+INSERT INTO
+  Pets (PetID, OwnerID, PetType, PetName, Breed)
+VALUES
+  ("3be181a7-bafb-40f0-8068-7a021ed5794a", "ca9fdb5c-97b5-4030-91f2-5cf5d7573d59", "Dog", "Noir", "Schnoodle");
+```
 
 __Note:__ The primary keys for this database are not integers, but 36 character strings. These keys are meant to be universally unique identifiers (UUIDs). You could enter any unique strings less than or equal to 36 characters and it would work. If you want to generate proper UUIDs though, you can make the following request in a browser and at the top of the page, a UUID will be shown. 
 
@@ -127,7 +140,7 @@ https://duckduckgo.com/?q=uuid
 
 ## Bonus Task 4. Creating a PostgreSQL database
 
-1. Create a second database in your Spanner instance. This time, choose PostgreSQL when prompted to select a database dialect. 
+1. Create a second database in your Spanner instance. This time, choose PostgreSQL when prompted to select a database dialect. As a reminder, make sure you are at the __Instance Overview__ page. Click the __Create Database__ button. 
 
 2. The DDL code for the Pets database using PostgreSQL syntax is as follows. 
 
