@@ -27,16 +27,16 @@ In this lab, you learn how to:
 
 1. On the Google Cloud Console title bar, click the __Navigation Menu__ (![nav menu icon](img/nav-menu.png)). Scroll to the Database section and click __Spanner__.
 
-2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown, and then click __Create Free Trial Instance__. If you aren't sure what region to select, just choose `us-east5 (Columbus)`. 
+2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown. If you aren't sure what region to select, just choose `us-east5 (Columbus)`. Then click __Create Free Trial Instance__. 
 
-__Note:__ If your are prompted to run the turotial, do not. 
+__Note:__ If your are prompted to run the turotial, click the __Close__ button. 
 
 
-3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __CREATE MY OWN__ button. 
+3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button, you may need to scroll to the bottom to find it. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __Create__ button. 
 
-4. Your database should appear in the Databases table. Click on it to go to its details page. 
+4. It should bring you to the details of the database and show you and overview and allow you to create a schema. If instead it stays on the Overview screen, you will see your database listed so you can click on it to go to its details page. 
 
-5. Click the __Write DDL__ button (![write ddl icon](img/write-ddl.png)) in the toolbar. 
+5. Click the __Create Schema__ button at the top of the page. 
 
 6. Enter the following CREATE TABLE statement, and then click the __Submit__ button. 
 
@@ -49,7 +49,7 @@ CREATE TABLE MyTable (
 
 7. Wait for the operation to complete. Your table should appear in the list of tables for that database. Click the table to see its details. 
 
-8. Hover over the Table navigation pane on the left, and select the __Data__ menu. 
+8. Hover over the Table navigation pane on the left, and select the __Query__ menu. 
 
 9. Change the query so it is similar to what is shown below and run it. Assuming you have no syntax errors, it should tell you 1 row was inserted. In the query you are simply inserting a record.  
 
@@ -69,7 +69,7 @@ VALUES
 SELECT * FROM MyTable;
 ```
 
-12. Examine the reults in the Console. 
+12. Examine the results in the Console. You can also click on the __Data__ tab on the side to browse the data.
 
 ![Query Results](img/query-results.png)
 
@@ -91,12 +91,12 @@ SELECT * FROM MyTable;
 
 7. In the __Allocate compute capacity__ section, change the __Unit__ dropdown to __Processing Units__. Processing units are added in increments of 100. Set the value to 100 (*this is the smallest Spanner instance possible*).
 
-8. Note the costs and capacity. Click __Create__ to create the database. 
+8. Note the costs and capacity. Click __Create__ to create the instance. 
 
 
 ## Task 3. Creating the Pets database
 
-1. As you did earlier, create a database called `pets-db`.
+1. As you did earlier, create a database called `pets-db` in the second instance.
 
 2. Add the tables `Owners` and `Pets` to the database using the following DDL code. 
 
@@ -142,7 +142,7 @@ https://duckduckgo.com/?q=uuid
 
 1. Create a second database in your Spanner instance. This time, choose PostgreSQL when prompted to select a database dialect. As a reminder, make sure you are at the __Instance Overview__ page. Click the __Create Database__ button. 
 
-2. The DDL code for the Pets database using PostgreSQL syntax is as follows. 
+2. The DDL code for the Pets database using PostgreSQL syntax is as follows. Note, you cannot enter this on the database create page like you can do when using Google Standard SQL. Also, you must enter these queries by using the __Create Table__ button not the __Query__ button on the side navigation panel.
 
 ```
 CREATE TABLE Owners (

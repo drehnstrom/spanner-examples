@@ -43,7 +43,7 @@ gcloud spanner instances create test-spanner-instance --config=regional-us-centr
 gcloud spanner instances list
 ```
 
-5. Before creating the Pets database, you need a file that contains the DDL code. Type the following command to create the file and open it in the Nano code editor. 
+5. Before creating the Pets database, you need a file that contains the DDL code. Type the following command to create the file and open it in the nano code editor. 
 
 ```
 nano pets-db-schema.sql
@@ -107,7 +107,7 @@ gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spann
 gcloud spanner databases execute-sql pets-db --instance=test-spanner-instance --sql='SELECT o.OwnerName, p.PetName, p.PetType, p.Breed FROM Owners as o JOIN Pets AS p ON o.OwnerID = p.OwnerID' 
 ```
 
-11. Go to the Console and find the instance, database, tables, and run a query to see the data. 
+11. Go to the Console and find the instance, database, tables, and run a query to see the data, or click on the __Data__ menu on the side navigation bar once you select the table.
 
 12. Delete the database with the following command. 
 
@@ -226,10 +226,10 @@ project_id = "YOUR-PROJECT-ID-HERE"
 region = "us-central1"
 ```
 
-__Note:__ You must enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. 
+__Note:__ You must enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. It will start with "qwiklabs-" not your User ID that starts with "student-".
 
 
-7. Let's see if it works. Click the __Open Terminal__ button. At the command prompt, enter the following. 
+7. Let's see if it works. Click the __Open Terminal__ button. Note, you may have to switch back to the original tab first if your Editor opened a new tab or window. At the command prompt, enter the following. 
 
 ```
 terraform init
@@ -247,7 +247,7 @@ terraform plan
 terraform apply 
 ```
 
-10. Wait for the Terraform command to complete. In the Console, navigate to the Spanner service and verify that the instance and database were created. 
+10. Wait for the Terraform command to complete. In the Console, navigate to the Spanner service and verify that the instance and database were created. There is no refresh button, so you may need to click on another product and then return to Spanner to refresh the instances list.
 
 11. Return to the terminal and enter the following command to delete the Spanner instance. 
 

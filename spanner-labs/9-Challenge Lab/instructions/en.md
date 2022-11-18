@@ -41,7 +41,7 @@ In this lab, you:
 
 4. Backup the database and document a restore plan. Practice the restore plan using another Spanner instance. 
 
-5. The customer wants to use Spanner as the OLTP database, and BigQuery as the OLAP data warehouse. Export the data in Avro format format, and then import it into BigQuery tables. ___You get bonus points if you write a script to do this.___ 
+5. The customer wants to use Spanner as the OLTP database, and BigQuery as the OLAP data warehouse. Export the data in Avro format, and then import it into BigQuery tables. ___You get bonus points if you write a script to do this.___ 
 
 6. A database isn't useful if you cannot add data to it. Using the Pets API as a guide, create an API that allows you to add trips to the trips table, and query the trips. <div></div>See the code in the `cloud-run` folder as a template. Deploy this to API to Cloud Run. 
 

@@ -140,7 +140,7 @@ gcloud functions deploy spanner_get_pets --runtime python310 --trigger-http --al
 
 ## Task 3. Create a Cloud Function to Write to Spanner
 
-1. Create a folder for your first Cloud Function with the following command.
+1. Create a folder for your second Cloud Function with the following command.
 
 ```
 mkdir ~/lab-files/spanner_save_pets
@@ -279,7 +279,7 @@ gcloud config set api_endpoint_overrides/spanner http://localhost:9020/
 
 ```
 
-3. Create the instance and database using gcloud, but note that these commands are using the emulator now, not Spanner in the cloud.
+3. Create the instance and database using gcloud, but note that these commands are using the emulator now, not Spanner in the cloud. Run each separately not as a whole.
 
 ```
 cd ~/lab-files
@@ -547,6 +547,8 @@ CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 main:app
 2. Return to the terminal and run the following code to create the Docker image. (_Make sure you are in the ~/lab-files/cloud-run folder._)
 
 ```
+cd ~/lab-files/cloud-run
+
 gcloud builds submit --tag=gcr.io/$GOOGLE_CLOUD_PROJECT/spanner-pets-api:v1.0 .
 ```
 
@@ -584,7 +586,7 @@ curl -X POST --data '{"OwnerName": "Joey", "PetName": "Felix", "PetType": "Cat",
 curl $pets_url/pets
 ```
 
-8. In the Console, navigate to the __Cloud Run__ service and click your service to view its details. 
+8. In the Console, navigate to the __Cloud Run__ service and click your service to view its details and look at the logs. You will see each request you made logged there.
 
 9. Navigate to Spanner and explore the instance and the database. 
 

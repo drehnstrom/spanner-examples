@@ -55,7 +55,7 @@ cat pets.csv
 8. Return to the terminal. Let's try to run this pipeline. First, you must install the Python prerequisites with the following commands. 
 
 ```
-pip install apache-beam[gcp]==2.41.0
+pip install apache-beam[gcp]==2.42.0
 pip install apache-beam[dataframe]
 ```
 
@@ -67,14 +67,15 @@ python csv-to-spanner.py
 
 10. When the pipeline completes, navigate to the Spanner service. Using the Console, run `SELECT * FROM Pets;` to see the results. 
 
-11. Again using the Console, run `DELETE FROM Pets WHERE 1=1;` to delete all the data you just added. Next, you run the code using the Dataflow service. 
+11. Again using the Console, run `DELETE FROM Pets WHERE True;` to delete all the data you just added. Next, you run the code using the Dataflow service. 
 
 # Task 1. Running a Dataflow job
 
-1. To run the job using Dataflow, you need a Cloud Storage bucket for inputs, staging, and outputs. Use the command below to create a bucket that contains your Project ID (_this should guarantee a unique name for the bucket_). Also, copy the `pets.csv` file into the bucket. 
+1. To run the job using Dataflow, you need a Cloud Storage bucket for inputs, staging, and outputs. Use the command below to create a bucket that contains your Project ID (_this should guarantee a unique name for the bucket_). Also, copy the `pets.csv` file into the bucket. Run each of these individually, not together.
 
 ```
 gsutil mb -l us-central1 gs://$DEVSHELL_PROJECT_ID-data-flow
+
 gsutil cp ./pets.csv gs://$DEVSHELL_PROJECT_ID-data-flow
 ```
 
@@ -97,9 +98,11 @@ python csv-to-spanner.py \
     --temp_location gs://$DEVSHELL_PROJECT_ID-data-flow/tmp/
 ```
 
-5. As you did before, verify the data was added to your Spanner database. 
+5. Use the Navigation menu to go to DataFlow Jobs. It may take a few moments to see the job show up, so just click the __Refresh__ button until you see it. Then you can click on the job and see the job details. It will take several minutes to run the job in the DataFlow service since it will create a cluster or one or more VMs to submit the job to.
 
-6. Delete the Spanner instance so you are no longer being charged for it. 
+6. As you did before, verify the data was added to your Spanner database. 
+
+7. Delete the Spanner instance so you are no longer being charged for it. 
 
 ### **Congratulations!** You used Dataflow and Apache Beam to migrate data into Spanner.
 
