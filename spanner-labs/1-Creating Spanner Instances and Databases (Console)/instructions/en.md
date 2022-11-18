@@ -32,7 +32,7 @@ In this lab, you learn how to:
 __Note:__ If your are prompted to run the turotial, do not. 
 
 
-3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __Create__ button. 
+3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __CREATE MY OWN__ button. 
 
 4. Your database should appear in the Databases table. Click on it to go to its details page. 
 
