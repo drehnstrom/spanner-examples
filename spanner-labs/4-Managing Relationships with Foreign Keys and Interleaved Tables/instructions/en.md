@@ -17,7 +17,7 @@ In this lab, you learn how to:
 
 ## Task 1. Creating an Orders database
 
-1. In previous labs, you have learned how to create Spanner instances, databases, and tables using the Google Cloud Console, the gcloud CLI, and Terraform. Using the method of your choice, create a database with the following criteria. _Feel free to modify the details if you like, or even use your own use case. The point is to create the database and tables without detailed instructions._ 
+1. In previous labs, you have learned how to create Spanner instances, databases, and tables using the Google Cloud Console, the gcloud CLI, and Terraform. Using the method of your choice, create a database with the following criteria. _The point is to create the database and tables without detailed instructions._ 
 
 ### __Database name:__ orders-db
 
@@ -25,30 +25,30 @@ In this lab, you learn how to:
 
 ### __Customers table__
 
-| Fields         
-|----------------
-| Company        
-| Name           
-| Region         
-| Address        
+| Fields         | Data Type 
+|----------------|-------------
+| Company        | STRING
+| Name           | STRING      
+| Region         | STRING        
+| Address        | STRING
 
 ### __Orders table__
-| Fields          
-|----------------
-| Date           
-| Customer       
-| Address        
+| Fields         | Data Type 
+|----------------|-------------
+| Date           | Date
+| Customer       | STRING
+| Address        | STRING
 
 ### __OrderDetails table__
 
-| Fields         
-|---------------
-| Qty           
-| Product       
-| Price         
+| Fields        | Data Type  
+|---------------|-------------
+| Qty           | Int64
+| Product       | STRING
+| Price         | FLOAT64
 
-### __Data types and primary keys__
-It is up to you what data types to use, and how to create the primary keys. 
+### __Primary keys__
+Ensure you create primary keys for each table. 
 
 ### __Relationships__
 
