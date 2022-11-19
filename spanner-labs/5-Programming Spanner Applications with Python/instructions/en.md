@@ -22,27 +22,21 @@ In this lab, you learn how to:
 
 1. From your Qwiklabs lab instructions, make note of your username, password, and Google Cloud project ID. You will need these later. 
 
-2. Go to the following URL: https://github.com/drehnstrom/spanner-examples/blob/main/colab-notebooks/Spanner_Samples_Python.ipynb 
+2. If you don't already have a DataFlow Workbench VM up and running, repeat the steps from Lab 3 to create one and clone the github project at the following URL: https://github.com/drehnstrom/spanner-examples.git
 
-3. This is a Jupyter notebook with the Python code for creating and using Spanner instances and databases. Click the __Open in Colab__ icon ![colab icon](img/colab-icon.png). This opens the notebook in an online Jupyter environment provided by Google. 
+3. Open /spanner-examples/colab-notebooks/Spanner_Samples_Python.ipynb and open it. This is a Jupyter notebook with the Python code for creating and using Spanner instances and databases. 
 
-4. You first need to log in with your Qwiklabs credentials. Hover over the first code cell and click the run button that appears. <div>In the warning that appears, click __Run anyway__, then click __Allow__ when asked to allow this notebook to access your Google credentials.
+4. Run the first cell to install the Python Spanner client library. 
 
-5. When asked to Sign in with Google, make sure you use the Qwiklabs credentials, not your own credentials. When prompted, allow Colaboratory access to your project. You should get a message that you are authenticated. 
-
-![Auth Message](img/authenticated-message.png)
-
-6. Run the next cell to install the Python Spanner client library. __Note:__ After the cell completes, you see a __Restart Runtime__ button. You must restart before continuing. 
-
-7. In the third cell, change the `project_id` variable to your Qwiklabs project ID, and then run the cell. 
+5. In the second cell, change the `project_id` variable to your Qwiklabs project ID, and then run the cell. 
 
 8. Read the text prior to each code cell and run each one. Take the time to understand what the code is doing. 
 
 ## Task 2. Programming Spanner databases using the PostgreSQL dialect
 
-1. Go to the following URL: https://github.com/drehnstrom/spanner-examples/blob/main/colab-notebooks/Spanner_PostgeSQL.ipynb, and click the __Open in Colab__ icon ![colab icon](img/colab-icon.png).
+1. Open /spanner-examples/colab-notebooks/Spanner_PostgeSQL.ipynb.
 
-2. Authenticate as you did with the previous notebook. Make sure to use your Qwiklabs credentials. Also, make sure to change the Project ID variable to your Qwiklabs project. 
+2. Examine and run each of the steps in the notebook.
 
 ### **Congratulations!** You have run the Python code to create Spanner instances and databases. You also saw how to create, retrieve, and delete records from databases using both the Google Standard SQL and PostgreSQL dialects. 
 
