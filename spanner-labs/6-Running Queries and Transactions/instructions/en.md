@@ -20,21 +20,17 @@ In this lab, you learn how to:
 
 ## Task 1. Programming queries and transactions with Python
 
-1. From your Qwiklabs lab instructions, make note of your username, password, and Google Cloud project ID. You need these later. 
+1. Using the Navigation menu in the Google Cloud Console, select  __Dataflow | Workbench__ from the Analytics section. If prompted, __Enable__ the Notebooks API.<div>__Tip:__ You can also search for `Dataflow Workbench` using the Search box in the Console toolbar.
 
-2. Go to the following URL: https://github.com/drehnstrom/spanner-examples/blob/main/colab-notebooks/Spanner_Queries_Transactions.ipynb 
+2. From the Workbench page, click the __New Notebook__ button and choose __Apache Beam | Without GPUs__. <div>Name the notebook `my-notebook`, choose the `us-central1` region, and click the __Create__ button.</div><div>___It will take a few minutes for the Notebook instance to be created.___</div>
 
-3. This is a Jupyter notebook with the Python code for running queries and transactions. Click the __Open in Colab__ icon ![colab icon](img/colab-icon.png). This opens the notebook in an online Jupyter environment provided by Google. 
+3. When the instance is ready, click on the __Open Jupyter__ link. This will open Jupyter in another browser tab. <div>From the Jupyter menu, choose __Git__ and __Clone Repository__, paste in the following URL `https://github.com/drehnstrom/spanner-examples`, and click __Clone__.
 
-4. You first need to log in with your Qwiklabs credentials. Hover over the first code cell and click the run button that appears. <div>In the warning that appears, click __Run anyway__, then click __Allow__ when asked to allow this notebook to access your Google credentials.
+4. In the file explorer on the left, navigate to `/spanner-examples/colab-notebooks/Spanner_Queries_Transactions.ipynb` and open that file. 
 
-5. When asked to Sign in with Google, make sure you use the Qwiklabs credentials, not your own credentials. When prompted, allow Colaboratory access to your project. You should get a message that you are authenticated. 
+4. Run the first cell to install the Python Spanner client library. 
 
-![Auth Message](img/authenticated-message.png)
-
-6. Run the next cell to install the Python Spanner client library. __Note:__ After the cell completes, you see a __Restart Runtime__ button. You must restart before continuing. 
-
-7. In the third cell, change the `project_id` variable to your Qwiklabs project ID, and then run the cell. 
+5. In the second cell, change the `project_id` variable to your Qwiklabs project ID, and then run the cell. In this cell, some variables are created and the Spanner API is enabled. 
 
 8. Read the text prior to each code cell and run each one. Take the time to understand what the code is doing. 
 
