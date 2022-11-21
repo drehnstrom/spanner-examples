@@ -27,14 +27,14 @@ In this lab, you learn how to:
 
 1. On the Google Cloud Console title bar, click the __Navigation Menu__ (![nav menu icon](img/nav-menu.png)). Scroll to the Database section and click __Spanner__.
 
-2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown. If you aren't sure what region to select, just choose `us-east5 (Columbus)`. Then click __Create Free Trial Instance__. 
+2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown. If you aren't sure what region to select, choose `us-east5 (Columbus)` and then click __Create Free Trial Instance__. 
 
 __Note:__ If your are prompted to run the turotial, click the __Close__ button. 
 
 
 3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button, you may need to scroll to the bottom to find it. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __Create__ button. 
 
-4. It should bring you to the details of the database and show you and overview and allow you to create a schema. If instead it stays on the Overview screen, you will see your database listed so you can click on it to go to its details page. 
+4. It should bring you to the details of the database and show you an overview and allow you to create a schema. If instead it stays on the Overview screen, you will see your database listed so you can click on it to go to its details page. 
 
 5. Click the __Create Schema__ button at the top of the page. 
 
