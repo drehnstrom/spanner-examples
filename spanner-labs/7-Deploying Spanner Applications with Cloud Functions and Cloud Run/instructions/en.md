@@ -279,7 +279,7 @@ gcloud config set api_endpoint_overrides/spanner http://localhost:9020/
 
 ```
 
-3. Create the instance and database using gcloud, but note that these commands are using the emulator now, not Spanner in the cloud. Run each separately not as a whole.
+3. Create the instance and database using gcloud, but note that these commands are using the emulator now, not Spanner in the cloud. Run each separately, not as a whole.
 
 ```
 cd ~/lab-files
