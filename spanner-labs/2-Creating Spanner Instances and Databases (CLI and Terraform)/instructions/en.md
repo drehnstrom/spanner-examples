@@ -107,7 +107,7 @@ gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spann
 gcloud spanner databases execute-sql pets-db --instance=test-spanner-instance --sql='SELECT o.OwnerName, p.PetName, p.PetType, p.Breed FROM Owners as o JOIN Pets AS p ON o.OwnerID = p.OwnerID' 
 ```
 
-11. Go to the Console and find the instance, database, tables, and run a query to see the data, or click on the __Data__ menu on the side navigation bar once you select the table.
+11. Go to the Console and find the instance, database, tables, and run a query to see the data, or click the __Data__ menu on the side navigation bar once you select the table.
 
 12. Delete the database with the following command. 
 
@@ -123,7 +123,7 @@ gcloud spanner databases delete pets-db --instance=test-spanner-instance
 gcloud spanner instances delete test-spanner-instance --quiet
 ```
 
-__Note:__ The `--quiet` parameter runs the command without prompting the user. This could have been added to the prior command as well. This is usefull if you are writing an automated pipeline and there would be no user to ask. 
+__Note:__ The `--quiet` parameter runs the command without prompting the user. This could have been added to the prior command as well. This is useful if you are writing an automated pipeline and there would be no user to ask. 
 
 15. In the Console, verify that the instance was deleted. 
 
@@ -226,10 +226,10 @@ project_id = "YOUR-PROJECT-ID-HERE"
 region = "us-central1"
 ```
 
-__Note:__ You must enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. It will start with "qwiklabs-" not your User ID that starts with "student-".
+__Note:__ You must enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. It  begins with "qwiklabs-" not your User ID that begins with "student-".
 
 
-7. Let's see if it works. Click the __Open Terminal__ button. Note, you may have to switch back to the original tab first if your Editor opened a new tab or window. At the command prompt, enter the following. 
+7. Let's see if it works. Click the __Open Terminal__ button. Note, you may have to switch back to the original tab first if your editor opened a new tab or window. At the command prompt, enter the following. 
 
 ```
 terraform init
