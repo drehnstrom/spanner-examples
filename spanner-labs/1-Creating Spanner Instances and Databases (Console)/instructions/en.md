@@ -29,12 +29,12 @@ In this lab, you learn how to:
 
 2. Click the __Start a Free Trial__ button and name your instance `my-free-instance`. Select any region you like from the configuration dropdown. If you aren't sure what region to select, choose `us-east5 (Columbus)` and then click __Create Free Trial Instance__. 
 
-__Note:__ If your are prompted to run the turotial, click the __Close__ button. 
+__Note:__ If your are prompted to run the tutortial, click the __Close__ button. 
 
 
 3. Wait for the instance to be created, then you should be redirected to the __Instance Overview__ page. Click the __Create Database__ button, you may need to scroll to the bottom to find it. Name your database `my-database`, choose __Google Standard SQL__, then scroll down and click the __Create__ button. 
 
-4. It should bring you to the details of the database and show you an overview and allow you to create a schema. If instead it stays on the Overview screen, you will see your database listed so you can click on it to go to its details page. 
+4. It should bring you to the details of the database, show you an overview, and allow you to create a schema. If instead it stays on the Overview screen, you will see your database listed so you can click it to go to its details page. 
 
 5. Click the __Create Schema__ button at the top of the page. 
 
@@ -51,7 +51,7 @@ CREATE TABLE MyTable (
 
 8. Hover over the Table navigation pane on the left, and select the __Query__ menu. 
 
-9. Change the query so it is similar to what is shown below and run it. Assuming you have no syntax errors, it should tell you 1 row was inserted. In the query you are simply inserting a record.  
+9. Change the query so it is similar to what is shown below and run it. Assuming you have no syntax errors, it should tell you 1 row was inserted. In the query, you are simply inserting a record.  
 
 ```
 INSERT INTO
@@ -61,15 +61,15 @@ VALUES
   (1, "Here is some data");
 ```
 
-10. Repeat the previous steps to add a few more records. Don't forget to change the `TableID` field each time so it is unique. You can enter any values you like for `Field1`. Just add 2 or 3 more records. 
+10. Repeat the previous steps to add a few more records. Don't forget to change the `TableID` field each time so it is unique. You can enter any values you like for `Field1`. Add 2 or 3 more records. 
 
-11. Click the __Clear Query__ and run the following SELECT query. 
+11. Click __Clear Query__ and run the following SELECT query. 
 
 ```
 SELECT * FROM MyTable;
 ```
 
-12. Examine the results in the Console. You can also click on the __Data__ tab on the side to browse the data.
+12. Examine the results in the Console. You can also click the __Data__ tab on the side to browse the data.
 
 ![Query Results](img/query-results.png)
 
