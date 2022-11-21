@@ -66,26 +66,26 @@ CREATE TABLE Pets (
 ) PRIMARY KEY (PetID);
 ```
 
-6. Now that you have the Schema file, run the following command to create the database. 
+7. Now that you have the Schema file, run the following command to create the database. 
 
 ```
 gcloud spanner databases create pets-db --instance=test-spanner-instance --database-dialect=GOOGLE_STANDARD_SQL --ddl-file=./pets-db-schema.sql
 ```
 
-7. Insert an Owner and all of the dogs owned. The primary keys for Owners and Pets use UUIDs. Enter the following command to create a UUID for the owner and store it in a variable. 
+8. Insert an Owner and all of the dogs owned. The primary keys for Owners and Pets use UUIDs. Enter the following command to create a UUID for the owner and store it in a variable. 
 
 ```
 owner_uuid=$(cat /proc/sys/kernel/random/uuid)
 echo $owner_uuid
 ```
 
-8. Insert the Owner Doug. <div>__Note:__ the `--data` parameter that allows you to pass the fields in name-value pairs. </div>
+9. Insert the Owner Doug. <div>__Note:__ the `--data` parameter that allows you to pass the fields in name-value pairs. </div>
 
 ```
 gcloud spanner rows insert --table=Owners --database=pets-db --instance=test-spanner-instance --data=OwnerID=$owner_uuid,OwnerName=Doug
 ```
 
-9. Insert all of Doug's dogs with the following commands. 
+10. Insert all of Doug's dogs with the following commands. 
 
 ```
 gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spanner-instance --data=PetID=$(cat /proc/sys/kernel/random/uuid),OwnerID=$owner_uuid,PetName='Rusty',PetType='Dog',Breed='Poodle'
@@ -101,23 +101,23 @@ gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spann
 gcloud spanner rows insert --table=Pets --database=pets-db --instance=test-spanner-instance --data=PetID=$(cat /proc/sys/kernel/random/uuid),OwnerID=$owner_uuid,PetName='Bree',PetType='Dog',Breed='Mutt'
 ```
 
-10. Let's see if it worked. Run the following query. 
+11. Let's see if it worked. Run the following query. 
 
 ```
 gcloud spanner databases execute-sql pets-db --instance=test-spanner-instance --sql='SELECT o.OwnerName, p.PetName, p.PetType, p.Breed FROM Owners as o JOIN Pets AS p ON o.OwnerID = p.OwnerID' 
 ```
 
-11. Go to the Console and find the instance, database, tables, and run a query to see the data, or click the __Data__ menu on the side navigation bar once you select the table.
+12. Go to the Console and find the instance, database, tables, and run a query to see the data, or click the __Data__ menu on the side navigation bar once you select the table.
 
-12. Delete the database with the following command. 
+13. Delete the database with the following command. 
 
 ```
 gcloud spanner databases delete pets-db --instance=test-spanner-instance 
 ```
 
-13. In the Console, verify the database was deleted. 
+14. In the Console, verify the database was deleted. 
 
-14. Lastly, delete the instance with the following command. 
+15. Lastly, delete the instance with the following command. 
 
 ```
 gcloud spanner instances delete test-spanner-instance --quiet
@@ -125,7 +125,7 @@ gcloud spanner instances delete test-spanner-instance --quiet
 
 __Note:__ The `--quiet` parameter runs the command without prompting the user. This could have been added to the prior command as well. This is useful if you are writing an automated pipeline and there would be no user to ask. 
 
-15. In the Console, verify that the instance was deleted. 
+16. In the Console, verify that the instance was deleted. 
 
 ## Task 2. Automate Spanner infrastructure using Terraform
 
@@ -189,7 +189,7 @@ resource "google_spanner_database" "test-database" {
 }
 ```
 
-5. Open the file `variables.tf`. In this file, you declare the variables used in the Terraform module. Add the following code. 
+6. Open the file `variables.tf`. In this file, you declare the variables used in the Terraform module. Add the following code. 
 
 ```
 variable "deletion_protection" {
@@ -219,7 +219,7 @@ variable "region" {
 }
 ```
 
-6. All the variables except for `project_id` and `region` have defaults. You use the `terraform.tfvars` file to set those variable values. Open that file and add the following. 
+7. All the variables except for `project_id` and `region` have defaults. You use the `terraform.tfvars` file to set those variable values. Open that file and add the following. 
 
 ```
 project_id = "YOUR-PROJECT-ID-HERE"
@@ -229,27 +229,27 @@ region = "us-central1"
 __Note:__ You must enter your Google Cloud Project ID where indicated. You can find your Project ID in the Console by navigating to the __Cloud overview__ page. It  begins with "qwiklabs-" not your User ID that begins with "student-".
 
 
-7. Let's see if it works. Click the __Open Terminal__ button. Note, you may have to switch back to the original tab first if your editor opened a new tab or window. At the command prompt, enter the following. 
+8. Let's see if it works. Click the __Open Terminal__ button. Note, you may have to switch back to the original tab first if your editor opened a new tab or window. At the command prompt, enter the following. 
 
 ```
 terraform init
 ```
 
-8. Assuming there were no errors with the previous command, enter the following and analyze the output. It should say that two resources will be added. 
+9. Assuming there were no errors with the previous command, enter the following and analyze the output. It should say that two resources will be added. 
 
 ```
 terraform plan
 ```
 
-9. Lasty, enter the following command to create the Spanner instance and Pets database. You must type `yes` when prompted. 
+10. Lasty, enter the following command to create the Spanner instance and Pets database. You must type `yes` when prompted. 
 
 ```
 terraform apply 
 ```
 
-10. Wait for the Terraform command to complete. In the Console, navigate to the Spanner service and verify that the instance and database were created. There is no refresh button, so you may need to click on another product and then return to Spanner to refresh the instances list.
+11. Wait for the Terraform command to complete. In the Console, navigate to the Spanner service and verify that the instance and database were created. There is no refresh button, so you may need to click on another product and then return to Spanner to refresh the instances list.
 
-11. Return to the terminal and enter the following command to delete the Spanner instance. 
+12. Return to the terminal and enter the following command to delete the Spanner instance. 
 
 ```
 terraform destroy -auto-approve
