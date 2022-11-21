@@ -22,13 +22,13 @@ In this lab, you learn how to:
 
 1. Using the Navigation menu in the Google Cloud Console, select  __Dataflow | Workbench__ from the Analytics section. If prompted, __Enable__ the Notebooks API.<div>__Tip:__ You can also search for `Dataflow Workbench` using the Search box in the Console toolbar.
 
-2. From the Workbench page, click the __New Notebook__ button and choose __Apache Beam | Without GPUs__. <div>Name the notebook `my-notebook`, choose the `us-central1` region, and click the __Create__ button.</div><div>___It will take a few minutes for the notebook instance to be created.___</div>
+2. From the Workbench page, click the __New Notebook__ button and choose __Apache Beam | Without GPUs__. <div>Name the Notebook `my-notebook`, choose the `us-central1` region, and click the __Create__ button.</div><div>___It will take a few minutes for the Notebook instance to be created.___</div>
 
 3. When the instance is ready, click the __Open Jupyter__ link. This opens Jupyter in another browser tab. <div>From the Jupyter menu, choose __Git__ and __Clone Repository__, paste in the following URL `https://github.com/drehnstrom/spanner-examples`, and then click __Clone__.
 
 4. In the file explorer on the left, navigate to `/spanner-examples/colab-notebooks/Spanner_Generating_PK_Values.ipynb` and open that file. 
 
-5. This is a Jupyter notebook with the code for generating primary keys in various formats using Python. Read the text and run the code in each code cell. To run the code in a cell, select it and click the run button from the toolbar. 
+5. This is a Jupyter Notebook with the code for generating primary keys in various formats using Python. Read the text and run the code in each code cell. To run the code in a cell, select it and click the run button from the toolbar. 
 
 ### **Congratulations!** You have examined and run the Python code for generating Spanner primary keys in various formats. 
 
