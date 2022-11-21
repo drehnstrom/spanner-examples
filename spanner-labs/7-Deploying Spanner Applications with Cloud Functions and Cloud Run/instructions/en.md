@@ -252,13 +252,13 @@ gcloud pubsub topics create new-pet-topic
 gcloud functions deploy spanner_save_pets --runtime python310 --trigger-topic=new-pet-topic --region=us-central1 --quiet
 ```
 
-6. When the command completes, in the Console, navigate to the __Pub/Sub__ service. Click the __new-pet-topic__ topic to view its details. <div>On the Details page, click the __Messages__ tab, then click the __Publish Message__ button. </div><div>Enter the message below, then click the __Publish__ button. __Note__: the message is in JSON format and must use the correct schema as shown for the function to work. </div>
+7. When the command completes, in the Console, navigate to the __Pub/Sub__ service. Click the __new-pet-topic__ topic to view its details. <div>On the Details page, click the __Messages__ tab, then click the __Publish Message__ button. </div><div>Enter the message below, then click the __Publish__ button. __Note__: the message is in JSON format and must use the correct schema as shown for the function to work. </div>
 
 ```
 {"OwnerName": "Jean", "PetName": "Sally", "PetType": "Frog", "Breed": "Green"}
 ```
 
-7. Go to the web page you used to test the read function. Refresh it in the browser and check if the new owner, Jean, and her frog, Sally, were added. 
+8. Go to the web page you used to test the read function. Refresh it in the browser and check if the new owner, Jean, and her frog, Sally, were added. 
 
 ## Task 4. Starting the Spanner emulator
 
