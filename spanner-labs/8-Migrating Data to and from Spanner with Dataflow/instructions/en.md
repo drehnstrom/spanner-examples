@@ -98,7 +98,7 @@ python csv-to-spanner.py \
     --temp_location gs://$DEVSHELL_PROJECT_ID-data-flow/tmp/
 ```
 
-5. Use the Navigation menu to go to DataFlow Jobs. It may take a few moments to see the job show up, so just click the __Refresh__ button until you see it. Then you can click on the job and see the job details. It will take several minutes to run the job in the DataFlow service since it will create a cluster or one or more VMs to submit the job to.
+5. Use the Navigation menu to go to DataFlow Jobs. It may take a few moments to see the job show up, so click the __Refresh__ button until you see it. Then you can click the job and see the job details. It takes several minutes to run the job in the DataFlow service since it creates a cluster or one or more VMs to submit the job to.
 
 6. As you did before, verify the data was added to your Spanner database. 
 
