@@ -24,7 +24,7 @@ In this lab, you learn how to:
 
 2. From the Workbench page, click the __New Notebook__ button and choose __Apache Beam | Without GPUs__. <div>Name the notebook `my-notebook`, choose the `us-central1` region, and click the __Create__ button.</div><div>___It will take a few minutes for the Notebook instance to be created.___</div>
 
-3. When the instance is ready, click on the __Open Jupyter__ link. This will open Jupyter in another browser tab. <div>From the Jupyter menu, choose __Git__ and __Clone Repository__, paste in the following URL `https://github.com/drehnstrom/spanner-examples`, and click __Clone__.
+3. When the instance is ready, click the __Open Jupyter__ link. This opens Jupyter in another browser tab. <div>From the Jupyter menu, choose __Git__ and __Clone Repository__, paste in the following URL `https://github.com/drehnstrom/spanner-examples`, and click __Clone__.
 
 4. In the file explorer on the left, navigate to `/spanner-examples/colab-notebooks/Spanner_Samples_Python.ipynb` and open that file. 
 
