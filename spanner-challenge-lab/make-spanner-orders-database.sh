@@ -11,5 +11,5 @@ pip install apache-beam[dataframe]
 
 
 echo "Run Apache Beam Job"
-python customers-import-to-spanner.py
+#python customers-import-to-spanner.py
 
