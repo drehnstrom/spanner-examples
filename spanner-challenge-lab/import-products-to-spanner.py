@@ -11,16 +11,13 @@ from apache_beam.dataframe.io import read_csv
 from apache_beam.dataframe import convert
 
 
-class CustomerRow(NamedTuple):
-    cust_id: int
-    cust_name: str
-    cust_address: str
-    cust_state: str
-    cust_zip: int 
-    cust_email: str
-    cust_phone: str
-    
-beam.coders.registry.register_coder(CustomerRow, beam.coders.RowCoder)
+class ProductRow(NamedTuple):
+    prod_code: int
+    prod_name: str
+    prod_desc: str
+    prod_price: float
+
+beam.coders.registry.register_coder(ProductRow, beam.coders.RowCoder)
 
 def reverse_bits(num, bitSize = 32):
     binary = bin(num)
@@ -35,7 +32,7 @@ def main(argv=None, save_main_session=True):
     parser.add_argument(
         '--input',
         dest='input',
-        default='customers.csv',
+        default='products.csv',
         help='Input filename.')
     parser.add_argument(
         '--instance',
@@ -50,7 +47,7 @@ def main(argv=None, save_main_session=True):
     parser.add_argument(
         '--table',
         dest='table',
-        default = 'customers',      
+        default = 'products',      
         help='Spanner table.')
     known_args, pipeline_args = parser.parse_known_args(argv)
 
@@ -58,20 +55,21 @@ def main(argv=None, save_main_session=True):
     pipeline_options.view_as(SetupOptions).save_main_session = save_main_session
 
     with beam.Pipeline(options=pipeline_options) as p:
-        customers = p | 'Read CSV to dataframe' >> read_csv(known_args.input)
+        products = p | 'Read CSV to dataframe' >> read_csv(known_args.input)
 
-        customers = ( convert.to_pcollection(customers)
-            | 'Convert to RegionRow class' >> beam.Map(lambda x : CustomerRow(**(x._asdict())))
-            | 'Reverse bits in cust_id' >> beam.Map(lambda x : CustomerRow(reverse_bits(x.cust_id), x.cust_name, x.cust_address, x.cust_state, x.cust_zip, x.cust_email, x.cust_phone))
+        products = ( convert.to_pcollection(products)
+            | 'Convert to ProductRow class' >> beam.Map(lambda x : ProductRow(**(x._asdict())))
+            | 'Reverse bits in prod_code' >> beam.Map(lambda x : ProductRow(reverse_bits(x.prod_code), x.prod_name, x.prod_desc, x.prod_price))
         )
 
-        customers | 'Write to Spanner' >> SpannerInsert(
+        products | 'Write to Spanner' >> SpannerInsert(
                     project_id=projectid,
                     instance_id=known_args.instance,
                     database_id=known_args.database,
                     table=known_args.table)
 
-        customers | beam.Map(print)
+        # Just for testing
+        # products | beam.Map(print)
 
 if __name__ == '__main__':
   logging.getLogger().setLevel(logging.INFO)
