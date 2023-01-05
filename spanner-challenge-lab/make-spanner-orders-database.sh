@@ -10,6 +10,9 @@ pip install apache-beam[gcp]==2.42.0
 pip install apache-beam[dataframe]
 
 
-echo "Run Apache Beam Job"
-#python customers-import-to-spanner.py
+echo "Import customers table"
+python customers-import-to-spanner.py
+
+echo "Import orders table"
+python orders-import-to-spanner.py
 

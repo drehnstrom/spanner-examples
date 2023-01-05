@@ -20,7 +20,7 @@ CREATE TABLE details (
      order_num STRING(MAX) NOT NULL,
      prod_code INT64 NOT NULL,
      qty INT64 NOT NULL,
-) PRIMARY KEY (order_num, line_item_num)
+) PRIMARY KEY (order_num, line_item_num),
 INTERLEAVE IN PARENT orders ON DELETE CASCADE;
 
 CREATE TABLE products (
